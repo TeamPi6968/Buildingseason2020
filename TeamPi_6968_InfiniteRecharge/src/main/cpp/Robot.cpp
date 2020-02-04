@@ -15,6 +15,7 @@
 
 void Robot::RobotInit() {
   int hallo = 1;
+  //testing
 }
 
 /**
