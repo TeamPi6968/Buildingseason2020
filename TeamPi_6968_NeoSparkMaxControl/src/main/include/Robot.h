@@ -5,40 +5,26 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Robot.h"
+#pragma once
 
-#include <iostream>
+#include <string>
 
-#include <frc/smartdashboard/SmartDashboard.h>
+#include <frc/TimedRobot.h>
+#include <frc/smartdashboard/SendableChooser.h>
 
-void Robot::RobotInit() {
-  
-}
+#include "RobotIO.h"
+#include "RTPI_SparkMax.h"
 
-void Robot::RobotPeriodic() {
+class Robot : public frc::TimedRobot {
+ public:
+  void RobotInit() override;
+  void RobotPeriodic() override;
+  void AutonomousInit() override;
+  void AutonomousPeriodic() override;
+  void TeleopInit() override;
+  void TeleopPeriodic() override;
+  void TestPeriodic() override;
 
-}
-
-void Robot::AutonomousInit() {
- 
-}
-
-void Robot::AutonomousPeriodic() {
- 
-}
-
-void Robot::TeleopInit() {
-
-}
-
-void Robot::TeleopPeriodic() {
-
-}
-
-void Robot::TestPeriodic() {
-
-}
-
-#ifndef RUNNING_FRC_TESTS
-int main() { return frc::StartRobot<Robot>(); }
-#endif
+ private:
+  RTPI_SparkMax *sparkTest;
+};

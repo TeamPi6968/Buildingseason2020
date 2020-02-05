@@ -12,7 +12,10 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::RobotInit() {
-  
+  //First parameter: CANID
+  //Second: Ramp
+  //Third: Inverted?
+  this->sparkTest = new RTPI_SparkMax(1, 5, false);
 }
 
 void Robot::RobotPeriodic() {
@@ -32,7 +35,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-
+  this->sparkTest->GetSparkMax()->Set(0.5);
 }
 
 void Robot::TestPeriodic() {

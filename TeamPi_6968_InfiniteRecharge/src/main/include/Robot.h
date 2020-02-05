@@ -11,7 +11,9 @@
 
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
+
 #include "RobotIO.h"
+#include "RTPI_SparkMax.h"
 
 class Robot : public frc::TimedRobot {
  public:
