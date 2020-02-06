@@ -12,6 +12,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::RobotInit() {
+<<<<<<< HEAD
   //Drivetrain Motorcontrollers:
   this->sparkDrivetrainLF = new RTPI_SparkMax(true, canDrivetrainLF, 1, false);
   this->sparkDrivetrainLB = new RTPI_SparkMax(true, canDrivetrainLB, 1, false);
@@ -19,6 +20,9 @@ void Robot::RobotInit() {
   this->sparkDrivetrainRF = new RTPI_SparkMax(true, canDrivetrainRF, 1, true);
 
   this->Input = new RTPI_ControllerInput(0,1);
+=======
+  MotorControllerSetup();
+>>>>>>> 90fff60b94755661816d10c22dcfeec9f56db182
 }
 
 void Robot::RobotPeriodic() {
@@ -43,6 +47,14 @@ void Robot::TeleopPeriodic() {
 
 void Robot::TestPeriodic() {
 
+}
+
+void Robot::MotorControllerSetup() {
+  //Drivetrain Motorcontrollers:
+    this->sparkDrivetrainLF = new RTPI_SparkMax(true, canDrivetrainLF, 1, false);
+    this->sparkDrivetrainLB = new RTPI_SparkMax(true, canDrivetrainLB, 1, false);
+    this->sparkDrivetrainRB = new RTPI_SparkMax(true, canDrivetrainRB, 1, true);
+    this->sparkDrivetrainRF = new RTPI_SparkMax(true, canDrivetrainRF, 1, true);
 }
 
 #ifndef RUNNING_FRC_TESTS

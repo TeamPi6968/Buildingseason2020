@@ -27,6 +27,8 @@ class Robot : public frc::TimedRobot {
   void TeleopPeriodic() override;
   void TestPeriodic() override;
 
+  void MotorControllerSetup();
+
  private:
   //Drivetrain Motorcontrollers:
   RTPI_SparkMax *sparkDrivetrainLF;
