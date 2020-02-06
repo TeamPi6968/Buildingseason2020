@@ -17,8 +17,8 @@ class RTPI_ControllerInput {
     private:
 
     public:
-    XboxController *DriveController;
-    XboxController *NavController;
+    XboxController *Driver;
+    XboxController *Navigator;
     
     RTPI_ControllerInput(int DriveID, int NavigatorID);
 };

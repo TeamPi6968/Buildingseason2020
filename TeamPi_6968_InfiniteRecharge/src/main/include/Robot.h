@@ -38,4 +38,7 @@ class Robot : public frc::TimedRobot {
 
   //ControllerInput:
   RTPI_ControllerInput *Input;
+
+  //ManualDrive:
+  
 };
