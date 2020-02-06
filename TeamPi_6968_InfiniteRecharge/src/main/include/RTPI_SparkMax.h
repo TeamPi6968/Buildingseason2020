@@ -7,10 +7,15 @@
 
 #pragma once
 
+#include "rev/CANSparkMax.h"
+
+using namespace rev;
+
 class RTPI_SparkMax {
  private:
-  
+  CANSparkMax *rtpiSparkMax;
 
  public:
-
+  RTPI_SparkMax(int canID, double acceleration, bool inverted);
+  CANSparkMax *GetSparkMax();
 };
