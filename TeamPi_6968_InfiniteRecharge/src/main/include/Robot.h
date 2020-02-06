@@ -12,8 +12,10 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 
+//Selfmade libraries
 #include "RobotIO.h"
 #include "RTPI_SparkMax.h"
+#include "RTPI_ControllerInput.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -31,4 +33,7 @@ class Robot : public frc::TimedRobot {
   RTPI_SparkMax *sparkDrivetrainLB;
   RTPI_SparkMax *sparkDrivetrainRB;
   RTPI_SparkMax *sparkDrivetrainRF;
+
+  //ControllerInput:
+  RTPI_ControllerInput *Input;
 };

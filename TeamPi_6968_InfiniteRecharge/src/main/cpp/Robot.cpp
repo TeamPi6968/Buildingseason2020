@@ -17,6 +17,8 @@ void Robot::RobotInit() {
   this->sparkDrivetrainLB = new RTPI_SparkMax(true, canDrivetrainLB, 1, false);
   this->sparkDrivetrainRB = new RTPI_SparkMax(true, canDrivetrainRB, 1, true);
   this->sparkDrivetrainRF = new RTPI_SparkMax(true, canDrivetrainRF, 1, true);
+
+  this->Input = new RTPI_ControllerInput(0,1);
 }
 
 void Robot::RobotPeriodic() {
