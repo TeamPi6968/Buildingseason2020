@@ -4,10 +4,10 @@
 
 //CANID's
     //Drivetrain Motorcontrollers:
-    int drivetrainLeftFront = 1;
-    int drivetrainLeftBack = 2;
-    int drivetrainRightBack = 3;
-    int drivetrainRightFront = 4;
+    int canDrivetrainLF = 1;
+    int canDrivetrainLB = 2;
+    int canDrivetrainRB = 3;
+    int canDrivetrainRF = 4;
     //---------------------------
     
     //Intake Motorcontrollers:

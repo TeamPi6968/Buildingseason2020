@@ -16,6 +16,6 @@ class RTPI_SparkMax {
   CANSparkMax *rtpiSparkMax;
 
  public:
-  RTPI_SparkMax(int canID, double acceleration, bool inverted);
+  RTPI_SparkMax(bool brushless, int canID, double acceleration, bool inverted);
   CANSparkMax *GetSparkMax();
 };

@@ -12,6 +12,9 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 
+#include "RobotIO.h"
+#include "RTPI_SparkMax.h"
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
@@ -22,6 +25,12 @@ class Robot : public frc::TimedRobot {
   void TeleopPeriodic() override;
   void TestPeriodic() override;
 
+  void MotorControllerSetup();
+
  private:
-  
+  //Drivetrain Motorcontrollers:
+  RTPI_SparkMax *sparkDrivetrainLF;
+  RTPI_SparkMax *sparkDrivetrainLB;
+  RTPI_SparkMax *sparkDrivetrainRB;
+  RTPI_SparkMax *sparkDrivetrainRF;
 };
