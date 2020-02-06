@@ -12,7 +12,12 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::RobotInit() {
-  
+  //Drivetrain Motorcontrollers:
+  this->sparkLeftFront = new RTPI_SparkMax(drivetrainLeftFrontID, 5, true);
+  this->sparkLeftBack = new RTPI_SparkMax(drivetrainLeftBackID, 5, true);
+  this->sparkRightBack = new RTPI_SparkMax(drivetrainRightBackID, 5, false);
+  this->sparkRightFront = new RTPI_SparkMax(drivetrainRightFrontID, 5, false);
+  //--------------------------------------------------------------------------
 }
 
 void Robot::RobotPeriodic() {
@@ -32,7 +37,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-
+  
 }
 
 void Robot::TestPeriodic() {

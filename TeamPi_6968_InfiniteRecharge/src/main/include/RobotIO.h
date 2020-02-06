@@ -2,21 +2,13 @@
 
 //Here will all the robot specific veriables go
 
-
-//IO
-
-//#define LED1 1;
-
-
-
-//CAN bus id
-
-//#define MOTORL1 5;
-//#define MOTORL2 6;
-//#define MOTORL3 7;
-//#define MOTORR1 8;
-//#define MOTORR1 9;
-//#define MOTORR1 10;
+//CANBUS ID's
+    //Drivetrain ID's
+    int drivetrainLeftFrontID = 1;
+    int drivetrainLeftBackID = 2;
+    int drivetrainRightBackID = 3;
+    int drivetrainRightFrontID = 4;
+    //-------------------------------
 
 
 

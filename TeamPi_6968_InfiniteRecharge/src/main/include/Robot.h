@@ -26,5 +26,10 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
  private:
-  
+  //Drivetrain Motorcontrollers:
+  RTPI_SparkMax *sparkLeftFront;
+  RTPI_SparkMax *sparkLeftBack;
+  RTPI_SparkMax *sparkRightBack;
+  RTPI_SparkMax *sparkRightFront;
+  //----------------------------
 };
