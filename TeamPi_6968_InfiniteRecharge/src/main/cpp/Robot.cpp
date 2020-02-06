@@ -12,9 +12,10 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::RobotInit() {
+  MotorControllerSetup();
   this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
   this->input = new RTPI_ControllerInput(0,1);
-  MotorControllerSetup();
+  
 }
 
 void Robot::RobotPeriodic() {
