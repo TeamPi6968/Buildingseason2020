@@ -15,10 +15,11 @@ using namespace frc;
 class RTPI_ControllerInput {
 
     private:
-
-    public:
-    XboxController *Driver;
-    XboxController *Navigator;
     
-    RTPI_ControllerInput(int DriveID, int NavigatorID);
+    public:
+    XboxController *driver;
+    XboxController *navigator;
+    
+    RTPI_ControllerInput(int driveID, int navigatorID);
+
 };

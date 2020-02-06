@@ -1,7 +1,7 @@
 #include "RTPI_ControllerInput.h"
 
-RTPI_ControllerInput::RTPI_ControllerInput(int DriverID, int NavigatorID){
+RTPI_ControllerInput::RTPI_ControllerInput(int driverID, int navigatorID){
 
-    this->Driver = new XboxController(DriverID);
-    this->Navigator = new XboxController(NavigatorID);
+    this->driver = new XboxController(driverID);
+    this->navigator = new XboxController(navigatorID);
 }
