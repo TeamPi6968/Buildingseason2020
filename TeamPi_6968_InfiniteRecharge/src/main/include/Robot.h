@@ -16,6 +16,7 @@
 #include "RobotIO.h"
 #include "RTPI_SparkMax.h"
 #include "RTPI_ControllerInput.h"
+#include "RTPI_Drivetrain.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -37,8 +38,8 @@ class Robot : public frc::TimedRobot {
   RTPI_SparkMax *sparkDrivetrainRF;
 
   //ControllerInput:
-  RTPI_ControllerInput *Input;
+  RTPI_ControllerInput *input;
 
-  //ManualDrive:
-  
+  //Drivetrain
+  RTPI_Drivetrain *drivetrain;
 };

@@ -12,17 +12,13 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::RobotInit() {
-  //Drivetrain Motorcontrollers:
-  this->sparkDrivetrainLF = new RTPI_SparkMax(true, canDrivetrainLF, 1, false);
-  this->sparkDrivetrainLB = new RTPI_SparkMax(true, canDrivetrainLB, 1, false);
-  this->sparkDrivetrainRB = new RTPI_SparkMax(true, canDrivetrainRB, 1, true);
-  this->sparkDrivetrainRF = new RTPI_SparkMax(true, canDrivetrainRF, 1, true);
-
-  this->Input = new RTPI_ControllerInput(0,1);
+  this->input = new RTPI_ControllerInput(0,1);
   MotorControllerSetup();
+  this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
 }
 
 void Robot::RobotPeriodic() {
+ 
 }
 
 void Robot::AutonomousInit() {
@@ -38,7 +34,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-
+  drivetrain->Drive(input->DriveController->GetRawAxis(1), input->DriveController->GetRawAxis(2));;
 }
 
 void Robot::TestPeriodic() {
