@@ -17,7 +17,7 @@
 #include "RTPI_SparkMax.h"
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
-#include "RTPI_ManualDrive.h"
+#include "RTPI_ManualFunctions.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -45,5 +45,5 @@ class Robot : public frc::TimedRobot {
   RTPI_Drivetrain *drivetrain;
 
   //ManualDrive
-  RTPI_ManualDrive *MDrive;
+  RTPI_ManualFunctions *mFunctions;
 };

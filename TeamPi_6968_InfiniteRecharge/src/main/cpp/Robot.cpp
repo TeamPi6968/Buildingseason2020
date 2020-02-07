@@ -15,7 +15,7 @@ void Robot::RobotInit() {
   MotorControllerSetup();
   this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
   this->input = new RTPI_ControllerInput(0,1);
-  this->MDrive = new RTPI_ManualDrive(drivetrain, input);
+  this->mFunctions = new RTPI_ManualFunctions(drivetrain, input);
 }
 
 void Robot::RobotPeriodic() {
@@ -36,7 +36,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   //drivetrain->Drive(input->driver->GetRawAxis(1), input->driver->GetRawAxis(2));
-  MDrive->ManualMovement(input->driver->GetRawAxis(3), input->driver->GetRawAxis(2));
+  mFunctions->ManualMovement(input->driver->GetRawAxis(3), input->driver->GetRawAxis(2));
 }
 
 void Robot::TestPeriodic() {
