@@ -19,7 +19,7 @@ void Robot::RobotInit() {
 }
 
 void Robot::RobotPeriodic() {
- 
+  
 }
 
 void Robot::AutonomousInit() {
@@ -35,8 +35,17 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-  mFunctions->DriveFPS();
-  //mFunctions->DriveRL();
+  //MANUALDRIVE:
+  if(driveMode == ROCKET_LEAGUE_DRIVE) {
+    mFunctions->DriveRL();
+  }
+  else if(driveMode == FIRST_PERSON_SHOOTER_DRIVE) {
+    mFunctions->DriveFPS();
+  }
+  else {
+
+  }
+  //END MANUALDRIVE
 }
 
 void Robot::TestPeriodic() {

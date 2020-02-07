@@ -19,6 +19,8 @@
 #include "RTPI_Drivetrain.h"
 #include "RTPI_ManualFunctions.h"
 
+using namespace frc;
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
