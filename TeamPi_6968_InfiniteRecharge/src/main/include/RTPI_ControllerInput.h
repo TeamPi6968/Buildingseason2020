@@ -8,18 +8,23 @@
 #pragma once
 
 #include <frc/XboxController.h>
-#include <frc/GenericHID.h>
+#include "frc/buttons/POVButton.h"
 
 using namespace frc;
 
 class RTPI_ControllerInput {
+ private:
+    
+ public:
+  XboxController *driver;
+  XboxController *navigator;
 
-    private:
+  //Driver Buttons
+  POVButton *driverPOVLeft;
+  POVButton *driverPOVDown;
+  POVButton *driverPOVRight;
+  POVButton *driverPOVUp;
     
-    public:
-    XboxController *driver;
-    XboxController *navigator;
-    
-    RTPI_ControllerInput(int driveID, int navigatorID);
+  RTPI_ControllerInput(int driveID, int navigatorID);
 
 };

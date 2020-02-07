@@ -40,6 +40,9 @@ class Robot : public frc::TimedRobot {
   RTPI_SparkMax *sparkDrivetrainRB;
   RTPI_SparkMax *sparkDrivetrainRF;
 
+  //RobotIO:
+  RobotIO *robotIO;
+
   //ControllerInput:
   RTPI_ControllerInput *input;
 
