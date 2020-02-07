@@ -12,5 +12,6 @@ class RTPI_ManualFunctions {
 
  public:
   RTPI_ManualFunctions(RTPI_Drivetrain *drivetrainF, RTPI_ControllerInput *inputF);
-  void ManualMovement(double driveForward, double driveBackward);
+  void DriveRL(); //Drive like Rocket League
+  void DriveFPS(); //Drive like First Person Shooter
 };

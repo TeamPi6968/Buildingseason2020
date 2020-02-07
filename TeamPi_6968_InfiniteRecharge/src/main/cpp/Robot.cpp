@@ -35,8 +35,8 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-  //drivetrain->Drive(input->driver->GetRawAxis(1), input->driver->GetRawAxis(2));
-  mFunctions->ManualMovement(input->driver->GetRawAxis(3), input->driver->GetRawAxis(2));
+  mFunctions->DriveFPS();
+  //mFunctions->DriveRL();
 }
 
 void Robot::TestPeriodic() {
