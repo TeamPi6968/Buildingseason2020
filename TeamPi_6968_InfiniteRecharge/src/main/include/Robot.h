@@ -18,6 +18,7 @@
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
 #include "RTPI_ManualFunctions.h"
+#include "RTPI_PIDControl.h"
 
 using namespace frc;
 
@@ -51,4 +52,7 @@ class Robot : public frc::TimedRobot {
 
   //ManualDrive
   RTPI_ManualFunctions *mFunctions;
+
+  //PIDControl
+  RTPI_PIDControl *PID;
 };

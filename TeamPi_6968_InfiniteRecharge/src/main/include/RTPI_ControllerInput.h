@@ -24,6 +24,9 @@ class RTPI_ControllerInput {
   POVButton *driverPOVDown;
   POVButton *driverPOVRight;
   POVButton *driverPOVUp;
+
+  //Navigator Buttons
+  
     
   RTPI_ControllerInput(int driveID, int navigatorID);
 
