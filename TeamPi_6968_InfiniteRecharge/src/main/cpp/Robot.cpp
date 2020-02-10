@@ -42,6 +42,9 @@ void Robot::TeleopPeriodic() {
     //Apply Drive Mode
     mFunctions->ManualDrive();
   //END MANUALDRIVE
+  //MANUALINTAKE:
+
+  //END MANUALINTAKE
 }
 
 void Robot::TestPeriodic() {
@@ -50,10 +53,24 @@ void Robot::TestPeriodic() {
 
 void Robot::MotorControllerSetup() {
   //Drivetrain Motorcontrollers:
-    this->sparkDrivetrainLF = new RTPI_SparkMax(true, robotIO->canDrivetrainLF, 1, false);
-    this->sparkDrivetrainLB = new RTPI_SparkMax(true, robotIO->canDrivetrainLB, 1, false);
-    this->sparkDrivetrainRB = new RTPI_SparkMax(true, robotIO->canDrivetrainRB, 1, true);
-    this->sparkDrivetrainRF = new RTPI_SparkMax(true, robotIO->canDrivetrainRF, 1, true);
+    this->sparkDrivetrainLF = new RTPI_SparkMax(true, robotIO->canDrivetrainLF, robotIO->accDrivetrain, false);
+    this->sparkDrivetrainLB = new RTPI_SparkMax(true, robotIO->canDrivetrainLB, robotIO->accDrivetrain, false);
+    this->sparkDrivetrainRB = new RTPI_SparkMax(true, robotIO->canDrivetrainRB, robotIO->accDrivetrain, true);
+    this->sparkDrivetrainRF = new RTPI_SparkMax(true, robotIO->canDrivetrainRF, robotIO->accDrivetrain, true);
+
+  //Intake Motorcontroller:
+    this->victorIntakeCylinder = new RTPI_VictorSPX(robotIO->canIntakeCylinder, robotIO->accIntakeCylinder, false);
+
+  //Storage Motorcontrollers:
+    this->sparkStorageRevolver = new RTPI_SparkMax(true, robotIO->canStorageRevolver, robotIO->accStorageRevolver, false);
+    this->sparkStorageLoader = new RTPI_SparkMax(true, robotIO->canStorageLoader, robotIO->accStorageLoader, false);
+
+  //Outtake Motorcontrollers:
+    this->sparkOuttakeUW = new RTPI_SparkMax(false, robotIO->canOuttakeUW, robotIO->accOuttake, false);
+    this->sparkOuttakeDW = new RTPI_SparkMax(false, robotIO->canOuttakeDW, robotIO->accOuttake, false);
+
+  //Control Panel Motorcontroller:
+    this->sparkCPWheels = new RTPI_SparkMax(true, robotIO->canCPWheels, robotIO->accCPWheels, false);
 }
 
 #ifndef RUNNING_FRC_TESTS

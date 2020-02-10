@@ -15,6 +15,7 @@
 //Selfmade libraries
 #include "RobotIO.h"
 #include "RTPI_SparkMax.h"
+#include "RTPI_VictorSPX.h"
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
 #include "RTPI_ManualFunctions.h"
@@ -35,20 +36,34 @@ class Robot : public frc::TimedRobot {
 
  private:
   //Drivetrain Motorcontrollers:
-  RTPI_SparkMax *sparkDrivetrainLF;
-  RTPI_SparkMax *sparkDrivetrainLB;
-  RTPI_SparkMax *sparkDrivetrainRB;
-  RTPI_SparkMax *sparkDrivetrainRF;
+    RTPI_SparkMax *sparkDrivetrainLF;
+    RTPI_SparkMax *sparkDrivetrainLB;
+    RTPI_SparkMax *sparkDrivetrainRB;
+    RTPI_SparkMax *sparkDrivetrainRF;
+
+  //Intake Motorcontroller:
+    RTPI_VictorSPX *victorIntakeCylinder;
+  
+  //Storage Motorcontrollers:
+    RTPI_SparkMax *sparkStorageRevolver;
+    RTPI_SparkMax *sparkStorageLoader;
+
+  //Outtake Motorcontrollers:
+    RTPI_SparkMax *sparkOuttakeUW;
+    RTPI_SparkMax *sparkOuttakeDW;
+
+  //Control Panel Motorcontroller:
+    RTPI_SparkMax *sparkCPWheels;
 
   //RobotIO:
-  RobotIO *robotIO;
+    RobotIO *robotIO;
 
   //ControllerInput:
-  RTPI_ControllerInput *input;
+    RTPI_ControllerInput *input;
 
   //Drivetrain
-  RTPI_Drivetrain *drivetrain;
+    RTPI_Drivetrain *drivetrain;
 
   //ManualDrive
-  RTPI_ManualFunctions *mFunctions;
+    RTPI_ManualFunctions *mFunctions;
 };
