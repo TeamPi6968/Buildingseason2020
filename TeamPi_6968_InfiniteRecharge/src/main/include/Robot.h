@@ -18,6 +18,7 @@
 #include "RTPI_VictorSPX.h"
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
+#include "RTPI_Intake.h"
 #include "RTPI_ManualFunctions.h"
 #include "RTPI_PIDControl.h"
 
@@ -64,6 +65,9 @@ class Robot : public frc::TimedRobot {
 
   //Drivetrain
     RTPI_Drivetrain *drivetrain;
+
+  //Intake
+    RTPI_Intake *intake;
 
   //ManualDrive
     RTPI_ManualFunctions *mFunctions;

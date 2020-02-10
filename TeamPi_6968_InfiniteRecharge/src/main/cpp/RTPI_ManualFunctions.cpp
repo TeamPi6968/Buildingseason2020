@@ -1,9 +1,10 @@
 #include "RTPI_ManualFunctions.h"
 
-RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *robotIOF, RTPI_Drivetrain *drivetrainF, RTPI_ControllerInput *inputF) {
-  robotIO = robotIOF;
-  drivetrain = drivetrainF;
-  input = inputF;
+RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake) {
+  this->robotIO = _robotIO;
+  this->input = _input;
+  this->drivetrain = _drivetrain;
+  this->intake = _intake;
 }
 
 void RTPI_ManualFunctions::DriveRL() {
@@ -30,4 +31,8 @@ void RTPI_ManualFunctions::UpdateDriveMode() {
   else if(input->driverPOVRight->Get())  {
     robotIO->driveMode = FIRST_PERSON_SHOOTER_DRIVE;
   }
+}
+
+void RTPI_ManualFunctions::ManualIntake() {
+  this->intake->SpinIntake(input->navigator->GetRawAxis(1));
 }

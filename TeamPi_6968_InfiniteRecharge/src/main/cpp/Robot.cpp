@@ -14,9 +14,10 @@
 void Robot::RobotInit() {
   this->robotIO = new RobotIO();
   MotorControllerSetup();
-  this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
   this->input = new RTPI_ControllerInput(0,1);
-  this->mFunctions = new RTPI_ManualFunctions(robotIO, drivetrain, input);
+  this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
+  this->intake = new RTPI_Intake(victorIntakeCylinder);
+  this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake);
 }
 
 void Robot::RobotPeriodic() {
@@ -38,12 +39,13 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
   //MANUALDRIVE:
     //Update Drive Mode
-    mFunctions->UpdateDriveMode();
+      mFunctions->UpdateDriveMode();
     //Apply Drive Mode
-    mFunctions->ManualDrive();
+      mFunctions->ManualDrive();
   //END MANUALDRIVE
   //MANUALINTAKE:
-
+    //Activate Intake if intakebutton is pressed
+      mFunctions->ManualIntake();
   //END MANUALINTAKE
 }
 
