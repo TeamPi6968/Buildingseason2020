@@ -16,6 +16,7 @@
 #include "RobotIO.h"
 #include "RTPI_SparkMax.h"
 #include "RTPI_VictorSPX.h"
+#include "RTPI_Pneumatics.h"
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
 #include "RTPI_Intake.h"
@@ -36,6 +37,7 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
   void MotorControllerSetup();
+  void PneumaticSetup();
   void ModuleSetup();
 
  private:
@@ -58,6 +60,14 @@ class Robot : public frc::TimedRobot {
 
   //Control Panel Motorcontroller:
     RTPI_SparkMax *sparkCPWheels;
+
+  //Pneumatics:
+    //Compressor
+      RTPI_Pneumatics *compressor;
+    //Pistons with 'Double Solenoids'
+      RTPI_Pneumatics *intakeLPiston;
+      RTPI_Pneumatics *intakeRPiston;
+      RTPI_Pneumatics *cpPiston;
 
   //RobotIO:
     RobotIO *robotIO;

@@ -5,6 +5,10 @@
 class RobotIO {
  public:
   //CANID's
+    //Pneumatic Control Module:
+      int canPCM = 11;
+    //Power Distribution Panel:
+      int canPDP = 0;
     //Drivetrain Motorcontrollers:
       int canDrivetrainLF = 1; //Left Front
       int canDrivetrainLB = 2; //Left Back
@@ -34,14 +38,27 @@ class RobotIO {
     //Control Panel:
       int accCPWheels = 0.2;
 
-  //Drive Settings:
+  //Pneumatic Ports (PCM Ports)
+    //Intake Pistons:
+      int intakeLPortForward = 0; //Left intake piston forward
+      int intakeLPortReverse = 1; //Left intake piston reverse
+      int intakeRPortForward = 2; //Right intake piston forward
+      int intakeRPortReverse = 3; //Right intake pitson reverse
+    //Control Panel Piston:
+      int cpPortForward = 4; //Control panel piston forward
+      int cpPortReverse = 5; //Control panel piston reverse
+
+  //Drive Settings: (RTPI_Drivetrain)
     //Drive Mode's
       #define ROCKET_LEAGUE_DRIVE 0
       #define FIRST_PERSON_SHOOTER_DRIVE 1
     //drive Mode
       int driveMode = ROCKET_LEAGUE_DRIVE; //Standard Drive Mode
 
-  //Intake Settings
+  //Intake Settings (RTPI_Intake)
     //Max Intake Speed
       double intakeSpeed = 0.5;
+
+  //Pneumatic Settings: (RTPI_Pneumatics)
+    //
 };
