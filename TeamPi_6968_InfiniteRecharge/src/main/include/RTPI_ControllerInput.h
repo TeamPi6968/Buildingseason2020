@@ -19,13 +19,17 @@ class RTPI_ControllerInput {
   XboxController *driver;
   XboxController *navigator;
 
-  //Driver Buttons
+  //Driver Buttons and POV's
   POVButton *driverPOVLeft;
   POVButton *driverPOVDown;
   POVButton *driverPOVRight;
   POVButton *driverPOVUp;
 
-  //Navigator Buttons
+  //Navigator Buttons and POV's
+  POVButton *navigatorPOVLeft;
+  POVButton *navigatorPOVDown;
+  POVButton *navigatorPOVRight;
+  POVButton *navigatorPOVUp;
   
     
   RTPI_ControllerInput(int driveID, int navigatorID);

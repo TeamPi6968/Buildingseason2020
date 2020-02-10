@@ -36,8 +36,12 @@ class RobotIO {
 
   //Drive Settings:
     //Drive Mode's
-    #define ROCKET_LEAGUE_DRIVE 0
-    #define FIRST_PERSON_SHOOTER_DRIVE 1
+      #define ROCKET_LEAGUE_DRIVE 0
+      #define FIRST_PERSON_SHOOTER_DRIVE 1
     //drive Mode
-    int driveMode = ROCKET_LEAGUE_DRIVE; //Standard Drive Mode
+      int driveMode = ROCKET_LEAGUE_DRIVE; //Standard Drive Mode
+
+  //Intake Settings
+    //Max Intake Speed
+      double intakeSpeed = 0.5;
 };

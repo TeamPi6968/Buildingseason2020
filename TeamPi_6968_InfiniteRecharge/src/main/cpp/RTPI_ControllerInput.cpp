@@ -10,4 +10,10 @@ RTPI_ControllerInput::RTPI_ControllerInput(int driverID, int navigatorID) {
   this->driverPOVDown = new POVButton(*driver, 180);
   this->driverPOVRight = new POVButton(*driver, 90);
   this->driverPOVUp = new POVButton(*driver, 0);
+
+  //Navigator POV Buttons
+  this->navigatorPOVLeft = new POVButton(*navigator, 270);
+  this->navigatorPOVDown = new POVButton(*navigator, 180);
+  this->navigatorPOVRight = new POVButton(*navigator, 90);
+  this->navigatorPOVUp = new POVButton(*navigator, 0);
 }
