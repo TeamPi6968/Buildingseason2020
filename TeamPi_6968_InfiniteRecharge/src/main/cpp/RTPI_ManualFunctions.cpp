@@ -8,6 +8,8 @@ RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInp
   this->storage = _storage;
 }
 
+//Drivetrain
+
 void RTPI_ManualFunctions::DriveRL() {
   drivetrain->Drive(input->driver->GetRawAxis(3) - input->driver->GetRawAxis(2), input->driver->GetRawAxis(0));
 }
@@ -34,6 +36,8 @@ void RTPI_ManualFunctions::UpdateDriveMode() {
   }
 }
 
+//Intake:
+
 void RTPI_ManualFunctions::ManualIntake() {
   if(input->navigatorPOVUp->Get()) {
     this->intake->SpinIntake(input->navigator->GetRawAxis(robotIO->intakeSpeed));
@@ -41,11 +45,19 @@ void RTPI_ManualFunctions::ManualIntake() {
   else if (input->navigatorPOVDown->Get()) {
     this->intake->SpinIntake(input->navigator->GetRawAxis(-robotIO->intakeSpeed));
   }
+  else {
+    this->intake->SpinIntake(0);
+  }
 }
+
+//Storage:
 
 void RTPI_ManualFunctions::ManualRevolver() {
   if(input->navigator->GetRawButton(9)) {
     this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
+  }
+  else {
+    this->storage->SpinRevolver(0);
   }
 }
 
