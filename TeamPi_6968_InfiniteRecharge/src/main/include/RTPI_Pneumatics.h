@@ -21,9 +21,9 @@ class RTPI_Pneumatics {
   Solenoid *rtpiSingleSolenoid;
   DoubleSolenoid *rtpiDoubleSolenoid;
  public:
-  RTPI_Pneumatics(int canID /*Compressor*/);
-  RTPI_Pneumatics(int canID, int portNumber /*Single Solenoid*/);
-  RTPI_Pneumatics(int canID, int portNumberForward, int portNumberReverse /*Double Solenoid*/);
+  RTPI_Pneumatics(int canID_PCM /*Compressor*/);
+  RTPI_Pneumatics(int canID_PCM, int portNumber /*Single Solenoid*/);
+  RTPI_Pneumatics(int canID_PCM, int portNumberForward, int portNumberReverse /*Double Solenoid*/);
 
   Compressor *GetCompressor();
   Solenoid *GetSingleSolenoid();
