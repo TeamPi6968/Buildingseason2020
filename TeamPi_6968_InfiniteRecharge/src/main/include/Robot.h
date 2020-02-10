@@ -19,6 +19,7 @@
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
 #include "RTPI_Intake.h"
+#include "RTPI_Storage.h"
 #include "RTPI_ManualFunctions.h"
 #include "RTPI_PIDControl.h"
 
@@ -35,6 +36,7 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
   void MotorControllerSetup();
+  void ModuleSetup();
 
  private:
   //Drivetrain Motorcontrollers:
@@ -68,6 +70,9 @@ class Robot : public frc::TimedRobot {
 
   //Intake
     RTPI_Intake *intake;
+
+  //Storage
+    RTPI_Storage *storage;
 
   //ManualDrive
     RTPI_ManualFunctions *mFunctions;

@@ -1,10 +1,11 @@
 #include "RTPI_ManualFunctions.h"
 
-RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake) {
+RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage) {
   this->robotIO = _robotIO;
   this->input = _input;
   this->drivetrain = _drivetrain;
   this->intake = _intake;
+  this->storage = _storage;
 }
 
 void RTPI_ManualFunctions::DriveRL() {
@@ -35,4 +36,14 @@ void RTPI_ManualFunctions::UpdateDriveMode() {
 
 void RTPI_ManualFunctions::ManualIntake() {
   this->intake->SpinIntake(input->navigator->GetRawAxis(1));
+}
+
+void RTPI_ManualFunctions::ManualRevolver() {
+  if(input->navigator->GetRawButton(9)) {
+    this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
+  }
+}
+
+void RTPI_ManualFunctions::ManualLoading() {
+  this->storage->SpinLoader(1);
 }
