@@ -24,6 +24,7 @@
 #include "RTPI_ManualFunctions.h"
 #include "RTPI_PIDControl.h"
 #include "RTPI_Outtake.h"
+#include "RTPI_ControlPanel.h"
 
 using namespace frc;
 
@@ -86,6 +87,9 @@ class Robot : public frc::TimedRobot {
 
   //Storage
     RTPI_Storage *storage;
+
+  //Control Panel
+    RTPI_ControlPanel *controlPanel;
 
   //ManualDrive
     RTPI_ManualFunctions *mFunctions;
