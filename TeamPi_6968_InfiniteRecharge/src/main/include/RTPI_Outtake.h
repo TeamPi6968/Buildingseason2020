@@ -16,5 +16,5 @@ class RTPI_Outtake {
 
     public:
     RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_);
-    void Shoot(double speed);
+    void Shoot(double shootingspeed);
 };

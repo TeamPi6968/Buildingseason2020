@@ -27,5 +27,5 @@ class RTPI_ManualFunctions {
   void ManualIntake(); //Checks if the intake needs to be activated, and activates intake
   void ManualRevolver();
   void ManualLoading();
-  void ManualShooting(double shootingspeed);
+  void ManualShooting();
 };
