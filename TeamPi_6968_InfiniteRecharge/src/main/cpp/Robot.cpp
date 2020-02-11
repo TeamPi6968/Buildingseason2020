@@ -54,7 +54,7 @@ void Robot::TeleopPeriodic() {
   //MANUALINTAKE:
     //Activate Intake if navigator uses Y-Dir. left joystick
       mFunctions->ManualIntake();
-      //this->intakeLRPiston->GetDoubleSolenoid()->Set(DoubleSolenoid::Value::kForward);
+      this->intakeLRPiston->GetDoubleSolenoid()->Set(DoubleSolenoid::Value::kForward);
   //END MANUALINTAKE
 
   //MANUALSTORAGE:
@@ -66,7 +66,7 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
-      mFunctions->ManualShooting(1);
+      mFunctions->ManualShooting();
 
 //End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
