@@ -58,9 +58,11 @@ void RTPI_ManualFunctions::ManualIntake() {
     if(robotIO->intakeBState0) {
       if(!robotIO->intakePState0) {
         this->intake->movePiston(DoubleSolenoid::Value::kForward);
+        robotIO->intakePState0 = 1;
       }
       else if(robotIO->intakePState0) {
         this->intake->movePiston(DoubleSolenoid::Value::kReverse);
+        robotIO->intakePState0 = 0;
       }
     }
     robotIO->lastIntakeBState0 = robotIO->intakeBState0;

@@ -6,6 +6,10 @@ RTPI_Intake::RTPI_Intake(RTPI_VictorSPX *intakeCylinder, RTPI_Pneumatics *piston
   pistonRight = pistonRight_;
 }
 
+void RTPI_Intake::ResetIntake() {
+  movePiston(DoubleSolenoid::Value::kReverse);
+}
+
 void RTPI_Intake::SpinIntake(double speed) {
   this->victorCylinder->GetVictorSPX()->Set(speed);
 }

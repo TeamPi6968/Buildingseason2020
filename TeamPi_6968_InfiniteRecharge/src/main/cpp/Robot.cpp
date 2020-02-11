@@ -37,7 +37,7 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-
+  intake->ResetIntake();
 }
 
 void Robot::TeleopPeriodic() {
