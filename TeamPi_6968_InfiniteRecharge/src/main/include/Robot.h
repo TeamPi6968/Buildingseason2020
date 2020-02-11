@@ -66,8 +66,7 @@ class Robot : public frc::TimedRobot {
     //Compressor
       RTPI_Pneumatics *compressor;
     //Pistons with 'Double Solenoids'
-      RTPI_Pneumatics *intakeLPiston;
-      RTPI_Pneumatics *intakeRPiston;
+      RTPI_Pneumatics *intakeLRPiston;
       RTPI_Pneumatics *cpPiston;
 
   //RobotIO:

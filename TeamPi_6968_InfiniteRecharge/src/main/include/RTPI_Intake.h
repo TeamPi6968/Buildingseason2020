@@ -13,10 +13,9 @@
 class RTPI_Intake {
  private:
   RTPI_VictorSPX *victorCylinder;
-  RTPI_Pneumatics *pistonLeft;
-  RTPI_Pneumatics *pistonRight;
+  RTPI_Pneumatics *pistonLR;
  public:
-  RTPI_Intake(RTPI_VictorSPX *intakeCylinder, RTPI_Pneumatics *pistonLeft_, RTPI_Pneumatics *pistonRight_);
+  RTPI_Intake(RTPI_VictorSPX *intakeCylinder, RTPI_Pneumatics *pistonLR_);
   void ResetIntake();
   void SpinIntake(double speed);
   void movePiston(enum DoubleSolenoid::Value direction);
