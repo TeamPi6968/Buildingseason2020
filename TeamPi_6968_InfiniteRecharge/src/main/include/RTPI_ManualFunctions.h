@@ -19,7 +19,7 @@ class RTPI_ManualFunctions {
   RTPI_Outtake *outtake;
 
  public:
-  RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage);
+  RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake);
   void DriveRL(); //Drive like Rocket League
   void DriveFPS(); //Drive like First Person Shooter
   void ManualDrive(); //Manual Drive the robot in selected mode

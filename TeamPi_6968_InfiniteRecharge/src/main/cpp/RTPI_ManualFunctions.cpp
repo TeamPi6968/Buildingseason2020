@@ -1,11 +1,12 @@
 #include "RTPI_ManualFunctions.h"
 
-RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage) {
+RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake) {
   this->robotIO = _robotIO;
   this->input = _input;
   this->drivetrain = _drivetrain;
   this->intake = _intake;
   this->storage = _storage;
+  this->outtake = _outtake;
 }
 
 //Drivetrain

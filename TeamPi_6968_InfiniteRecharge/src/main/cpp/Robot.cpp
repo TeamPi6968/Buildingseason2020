@@ -21,7 +21,7 @@ void Robot::RobotInit() {
   PneumaticSetup();
   this->input = new RTPI_ControllerInput(0,1);
   ModuleSetup();
-  this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage);
+  this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake);
 }
 
 void Robot::RobotPeriodic() {
@@ -63,7 +63,7 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
-    mFunctions->ManualShooting(50);
+      mFunctions->ManualShooting(1);
 }
 
 void Robot::TestPeriodic() {
