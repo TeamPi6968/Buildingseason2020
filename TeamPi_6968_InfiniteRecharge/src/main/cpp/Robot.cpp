@@ -65,7 +65,7 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
-      mFunctions->ManualShooting(1);
+      mFunctions->ManualShooting();
 
 //End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
