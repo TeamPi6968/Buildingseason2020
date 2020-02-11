@@ -41,10 +41,10 @@ void RTPI_ManualFunctions::UpdateDriveMode() {
 void RTPI_ManualFunctions::ManualIntake() {
   //Spin Cylinder
   if(input->navigator->GetRawButton(5)) {
-    this->intake->SpinIntake(input->navigator->GetRawAxis(robotIO->intakeSpeed));
+    this->intake->SpinIntake(robotIO->intakeSpeed);
   }
   else if (input->navigator->GetRawButton(6)) {
-    this->intake->SpinIntake(input->navigator->GetRawAxis(-robotIO->intakeSpeed));
+    this->intake->SpinIntake(-robotIO->intakeSpeed);
   }
   else {
     this->intake->SpinIntake(0);
@@ -52,6 +52,7 @@ void RTPI_ManualFunctions::ManualIntake() {
 
   //Move Intake Piston
   //Change State Detection
+
   robotIO->intakeBState0 = input->navigatorPOVLeft->Get();
 
   if(robotIO->intakeBState0 != robotIO->lastIntakeBState0) {
