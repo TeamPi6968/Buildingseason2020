@@ -69,6 +69,17 @@ void RTPI_ManualFunctions::ManualIntake() {
   }
 }
 
+//Outtake:
+
+void RTPI_ManualFunctions::ManualShooting(double shootingspeed){
+  if(input->navigator->GetRawButton(3)){
+    this->outtake->Shoot(shootingspeed);
+  }
+  else {
+    this->outtake->Shoot(0);
+  }
+}
+
 //Storage:
 
 void RTPI_ManualFunctions::ManualRevolver() {

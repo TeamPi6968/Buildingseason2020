@@ -4,14 +4,14 @@ RTPI_PIDControl::RTPI_PIDControl(double Kp){
     p = Kp;
 }
 
-double RTPI_PIDControl::GetRotAd(double AngleTolerance, double constForce, double setPoint, double currentPoint){
+double RTPI_PIDControl::GetRotAd(double tolerance, double constForce, double setPoint, double currentPoint){
     double output;
     double error = setPoint - currentPoint;
 
-    if(error < -AngleTolerance) {
+    if(error < -tolerance) {
         output = p * error - constForce;
     }
-    else if(error > AngleTolerance){
+    else if(error > tolerance){
         output = p * error + constForce;
     }
     else{

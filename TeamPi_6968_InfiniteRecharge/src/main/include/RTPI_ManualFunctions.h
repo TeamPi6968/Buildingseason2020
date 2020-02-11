@@ -5,6 +5,7 @@
 #include "RTPI_Drivetrain.h"
 #include "RTPI_Intake.h"
 #include "RTPI_Storage.h"
+#include "RTPI_Outtake.h"
 
 using namespace frc;
 
@@ -15,6 +16,7 @@ class RTPI_ManualFunctions {
   RTPI_Drivetrain *drivetrain;
   RTPI_Intake *intake;
   RTPI_Storage *storage;
+  RTPI_Outtake *outtake;
 
  public:
   RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage);
@@ -25,4 +27,5 @@ class RTPI_ManualFunctions {
   void ManualIntake(); //Checks if the intake needs to be activated, and activates intake
   void ManualRevolver();
   void ManualLoading();
+  void ManualShooting(double shootingspeed);
 };

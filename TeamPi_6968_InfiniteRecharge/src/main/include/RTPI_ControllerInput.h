@@ -2,7 +2,7 @@
 -   Created By: Duncan Kikkert
 -   Date: 6/02/2020
 -   Time: 14:03
--   Class: Manual Functions
+-   Class: RTPI_ControllerInput
 */
 
 #pragma once
