@@ -41,6 +41,8 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
+//Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
   //MANUALDRIVE:
     //Update Drive Mode
       mFunctions->UpdateDriveMode();
@@ -56,14 +58,20 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSTORAGE:
     //Rotate Storage Revolver if navigator uses X-Dir. left joystick + Click left joystick
-      //mFunctions->ManualRevolver();
+      mFunctions->ManualRevolver();
     //Spin Storage Loader if navigator uses ...
-      //mFunctions->ManualLoading();
+      mFunctions->ManualLoading();
   //END MANUALSTORAGE
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
       mFunctions->ManualShooting(1);
+
+//End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+//Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+//End Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 }
 
 void Robot::TestPeriodic() {
@@ -107,7 +115,7 @@ void Robot::PneumaticSetup() {
   this->cpPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->cpPortForward, robotIO->cpPortReverse);
 }
 
-//====================================END=========================================//holla
+//====================================END=========================================//
 
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }
