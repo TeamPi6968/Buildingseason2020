@@ -39,28 +39,40 @@ void RTPI_ManualFunctions::UpdateDriveMode() {
 //Intake:
 
 void RTPI_ManualFunctions::ManualIntake() {
-  if(input->navigatorPOVUp->Get()) {
+  //Spin Cylinder
+  if(input->navigator->GetRawButton(5)) {
     this->intake->SpinIntake(input->navigator->GetRawAxis(robotIO->intakeSpeed));
   }
-  else if (input->navigatorPOVDown->Get()) {
+  else if (input->navigator->GetRawButton(6)) {
     this->intake->SpinIntake(input->navigator->GetRawAxis(-robotIO->intakeSpeed));
   }
   else {
     this->intake->SpinIntake(0);
+  }
+
+  //Move Intake Piston
+  //Change State Detection
+  robotIO->intakeBState0 = input->navigatorPOVLeft->Get();
+
+  if(robotIO->intakeBState0 != robotIO->lastIntakeBState0) {
+    if(robotIO->intakeBState0) {
+      if(!robotIO->intakePState0) {
+        this->intake->movePiston(DoubleSolenoid::Value::kForward);
+      }
+      else if(robotIO->intakePState0) {
+        this->intake->movePiston(DoubleSolenoid::Value::kReverse);
+      }
+    }
+    robotIO->lastIntakeBState0 = robotIO->intakeBState0;
   }
 }
 
 //Storage:
 
 void RTPI_ManualFunctions::ManualRevolver() {
-  if(input->navigator->GetRawButton(9)) {
-    this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
-  }
-  else {
-    this->storage->SpinRevolver(0);
-  }
+  this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
 }
 
 void RTPI_ManualFunctions::ManualLoading() {
-  this->storage->SpinLoader(0);
+  this->storage->SpinLoader(input->navigator->GetRawAxis(5));
 }

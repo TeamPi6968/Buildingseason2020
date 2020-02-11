@@ -91,7 +91,7 @@ void Robot::MotorControllerSetup() {
 
 void Robot::ModuleSetup() {
   this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
-  this->intake = new RTPI_Intake(victorIntakeCylinder);
+  this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLPiston, intakeRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
 }
 

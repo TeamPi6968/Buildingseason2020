@@ -58,6 +58,10 @@ class RobotIO {
   //Intake Settings (RTPI_Intake)
     //Max Intake Speed
       double intakeSpeed = 0.5;
+    //Change State Detection Variables
+      bool intakeBState0 = 0; //Current Intake Button State, Number 0
+      bool lastIntakeBState0 = 0; //last Intake Button State, Number 0
+      bool intakePState0; //Current Intake Piston State, Number 0
 
   //Pneumatic Settings: (RTPI_Pneumatics)
     //
