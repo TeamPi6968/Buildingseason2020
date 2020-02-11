@@ -91,14 +91,13 @@ void Robot::MotorControllerSetup() {
 
 void Robot::ModuleSetup() {
   this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
-  this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLPiston, intakeRPiston);
+  this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
 }
 
 void Robot::PneumaticSetup() {
   this->compressor = new RTPI_Pneumatics(robotIO->canPCM);
-  this->intakeLPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->intakeLPortForward, robotIO->intakeLPortReverse);
-  this->intakeRPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->intakeRPortForward, robotIO->intakeRPortReverse);
+  this->intakeLRPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->intakeLRPortForward, robotIO->intakeLRPortReverse);
   this->cpPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->cpPortForward, robotIO->cpPortReverse);
 }
 

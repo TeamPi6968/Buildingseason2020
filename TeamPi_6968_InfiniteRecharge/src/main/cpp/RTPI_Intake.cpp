@@ -1,9 +1,8 @@
 #include "RTPI_Intake.h"
 
-RTPI_Intake::RTPI_Intake(RTPI_VictorSPX *intakeCylinder, RTPI_Pneumatics *pistonLeft_, RTPI_Pneumatics *pistonRight_) {
+RTPI_Intake::RTPI_Intake(RTPI_VictorSPX *intakeCylinder, RTPI_Pneumatics *pistonLR_) {
   victorCylinder = intakeCylinder;
-  pistonLeft = pistonLeft_;
-  pistonRight = pistonRight_;
+  pistonLR = pistonLR_;
 }
 
 void RTPI_Intake::ResetIntake() {
@@ -15,6 +14,5 @@ void RTPI_Intake::SpinIntake(double speed) {
 }
 
 void RTPI_Intake::movePiston(enum DoubleSolenoid::Value direction) {
-  this->pistonLeft->GetDoubleSolenoid()->Set(direction);
-  this->pistonRight->GetDoubleSolenoid()->Set(direction);
+  this->pistonLR->GetDoubleSolenoid()->Set(direction);
 }

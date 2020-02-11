@@ -40,13 +40,11 @@ class RobotIO {
 
   //Pneumatic Ports (PCM Ports)
     //Intake Pistons:
-      int intakeLPortForward = 0; //Left intake piston forward
-      int intakeLPortReverse = 1; //Left intake piston reverse
-      int intakeRPortForward = 2; //Right intake piston forward
-      int intakeRPortReverse = 3; //Right intake pitson reverse
+      int intakeLRPortForward = 0; //Left intake piston forward
+      int intakeLRPortReverse = 1; //Left intake piston reverse
     //Control Panel Piston:
-      int cpPortForward = 4; //Control panel piston forward
-      int cpPortReverse = 5; //Control panel piston reverse
+      int cpPortForward = 2; //Control panel piston forward
+      int cpPortReverse = 3; //Control panel piston reverse
 
   //Drive Settings: (RTPI_Drivetrain)
     //Drive Mode's
