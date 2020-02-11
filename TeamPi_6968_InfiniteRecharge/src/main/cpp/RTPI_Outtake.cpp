@@ -1,12 +1,12 @@
 #include "RTPI_Outtake.h"
 
-RTPI_Outtake::RTPI_Outtake(RTPI_VictorSPX *VictorOut1_, RTPI_VictorSPX *VictorOut2_){
-    VictorOut1 = VictorOut1_;
-    VictorOut2 = VictorOut2_;
+RTPI_Outtake::RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_){
+    sparkOut1 = sparkOut1_;
+    sparkOut2 = sparkOut2_;
 
-this->VictorOut2->GetVictorSPX()->Follow(*VictorOut1->GetVictorSPX());
+this->sparkOut2->GetSparkMax()->Follow(*sparkOut1->GetSparkMax());
 }
 
 void RTPI_Outtake::Shoot(double speed){
-    this->VictorOut1->GetVictorSPX()->Set(speed);
+    this->sparkOut1->GetSparkMax()->Set(speed);
 }

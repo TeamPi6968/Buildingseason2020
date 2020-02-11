@@ -7,14 +7,14 @@
 
 #pragma once
 
-#include "RTPI_VictorSPX.h"
+#include "RTPI_SparkMax.h"
 
 class RTPI_Outtake {
     private:
-        RTPI_VictorSPX *VictorOut1;
-        RTPI_VictorSPX *VictorOut2;
+        RTPI_SparkMax *sparkOut1;
+        RTPI_SparkMax *sparkOut2;
 
     public:
-    RTPI_Outtake(RTPI_VictorSPX *VictorOut1_, RTPI_VictorSPX *VictorOut2_);
+    RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_);
     void Shoot(double speed);
 };
