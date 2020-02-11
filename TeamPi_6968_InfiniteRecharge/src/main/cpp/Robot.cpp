@@ -65,9 +65,6 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
-<<<<<<< HEAD
-      mFunctions->ManualShooting();
-=======
       mFunctions->ManualShooting(1);
 
 //End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -75,7 +72,6 @@ void Robot::TeleopPeriodic() {
 //Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 //End Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
->>>>>>> 6310cdcc80ee72cf1f85379f0c81db94cffcc1d7
 }
 
 void Robot::TestPeriodic() {
