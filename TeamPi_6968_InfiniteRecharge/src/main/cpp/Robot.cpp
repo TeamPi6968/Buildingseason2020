@@ -60,6 +60,10 @@ void Robot::TeleopPeriodic() {
     //Spin Storage Loader if navigator uses ...
       //mFunctions->ManualLoading();
   //END MANUALSTORAGE
+
+  //MANUALSHOOTING:
+    //Activate Outtake shooter if navigator's "x" button is pressed
+    mFunctions->ManualShooting(50);
 }
 
 void Robot::TestPeriodic() {
@@ -94,6 +98,7 @@ void Robot::ModuleSetup() {
   this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
   this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
+  this->outtake = new RTPI_Outtake(sparkOuttakeUW, sparkOuttakeDW);
 }
 
 void Robot::PneumaticSetup() {
