@@ -1,12 +1,13 @@
 #include "RTPI_ManualFunctions.h"
 
-RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake) {
+RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake, RTPI_ControlPanel *_controlPanel) {
   this->robotIO = _robotIO;
   this->input = _input;
   this->drivetrain = _drivetrain;
   this->intake = _intake;
   this->storage = _storage;
   this->outtake = _outtake;
+  this->controlPanel = _controlPanel;
 }
 
 //Drivetrain
@@ -93,4 +94,14 @@ void RTPI_ManualFunctions::ManualRevolver() {
 
 void RTPI_ManualFunctions::ManualLoading() {
   this->storage->SpinLoader(input->navigator->GetRawAxis(5));
+}
+
+// ControlPanel
+
+void RTPI_ManualFunctions::ManualCP(){
+  double clockWise = input->navigator->GetRawAxis(3);
+  double counterClockWise = input->navigator->GetRawAxis(2);
+  double triggerSum = clockWise - counterClockWise;
+
+  this->controlPanel->ColourAndCount(triggerSum);
 }

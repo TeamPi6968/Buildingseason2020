@@ -21,7 +21,7 @@ void Robot::RobotInit() {
   PneumaticSetup();
   this->input = new RTPI_ControllerInput(0,1);
   ModuleSetup();
-  this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake);
+  this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake, controlPanel);
 }
 
 void Robot::RobotPeriodic() {
@@ -29,15 +29,16 @@ void Robot::RobotPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-  controlPanel->ColourMatcher();
+
 }
 
 void Robot::AutonomousPeriodic() {
-  controlPanel->ColourAndCount();
+
 }
 
 void Robot::TeleopInit() {
   intake->ResetIntake();
+  controlPanel->ColourMatcher();
 }
 
 void Robot::TeleopPeriodic() {
@@ -64,7 +65,15 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
-      mFunctions->ManualShooting();
+      if(input->navigator->GetRawButton(3)){
+        mFunctions->ManualShooting();
+      }
+
+  //MANUALCONTROLPANEL
+    //Activate Controlpanel if navigator's "B" button is pressed
+        if(input->navigator->GetRawButton(2)){
+          mFunctions->ManualCP();
+        }
 
 //End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -107,7 +116,7 @@ void Robot::ModuleSetup() {
   this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
   this->outtake = new RTPI_Outtake(sparkOuttakeUW, sparkOuttakeDW);
-  this->controlPanel = new RTPI_ControlPanel();
+  this->controlPanel = new RTPI_ControlPanel(sparkCPWheels);
 }
 
 void Robot::PneumaticSetup() {

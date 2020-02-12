@@ -1,3 +1,10 @@
+/*
+-   Created By: Auke Cras
+-   Date: 12/02/2020
+-   Time: 13:56
+-   Class: RTPI_Outtake
+*/
+
 #pragma once
 
 #include "RTPI_SparkMax.h"
@@ -18,6 +25,8 @@ class RTPI_ControlPanel{
         static constexpr frc::Color kRedTarget = frc::Color     (0.530, 0.335, 0.134);
         static constexpr frc::Color kYellowTarget = frc::Color  (0.317, 0.557, 0.136);
         static constexpr frc::Color kFakeYellowTarget1 = frc::Color(0.313, 0.435, 0.251);
+        
+        RTPI_SparkMax *sparkCP;
 
     public:
     void ColourMatcher();
@@ -26,6 +35,8 @@ class RTPI_ControlPanel{
     std::string preColorString;
     int colorCount = 0;
 
-    void ColourAndCount ();
+    void ColourAndCount(double triggerSum);
+    void AutoColourAndCount();
+    RTPI_ControlPanel(RTPI_SparkMax *_sparkCP);
     
 };

@@ -6,6 +6,7 @@
 #include "RTPI_Intake.h"
 #include "RTPI_Storage.h"
 #include "RTPI_Outtake.h"
+#include "RTPI_ControlPanel.h"
 
 using namespace frc;
 
@@ -17,9 +18,10 @@ class RTPI_ManualFunctions {
   RTPI_Intake *intake;
   RTPI_Storage *storage;
   RTPI_Outtake *outtake;
+  RTPI_ControlPanel *controlPanel;
 
  public:
-  RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake);
+  RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake, RTPI_ControlPanel *_controlPanel);
   void DriveRL(); //Drive like Rocket League
   void DriveFPS(); //Drive like First Person Shooter
   void ManualDrive(); //Manual Drive the robot in selected mode
@@ -28,4 +30,5 @@ class RTPI_ManualFunctions {
   void ManualRevolver();
   void ManualLoading();
   void ManualShooting();
+  void ManualCP();
 };
