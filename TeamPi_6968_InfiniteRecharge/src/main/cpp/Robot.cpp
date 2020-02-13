@@ -86,24 +86,24 @@ void Robot::TestPeriodic() {
 
 void Robot::MotorControllerSetup() {
   //Drivetrain Motorcontrollers:
-    this->sparkDrivetrainLF = new RTPI_SparkMax(true, robotIO->canDrivetrainLF, robotIO->accDrivetrain, false);
-    this->sparkDrivetrainLB = new RTPI_SparkMax(true, robotIO->canDrivetrainLB, robotIO->accDrivetrain, false);
-    this->sparkDrivetrainRB = new RTPI_SparkMax(true, robotIO->canDrivetrainRB, robotIO->accDrivetrain, true);
-    this->sparkDrivetrainRF = new RTPI_SparkMax(true, robotIO->canDrivetrainRF, robotIO->accDrivetrain, true);
+    this->sparkDrivetrainLF = new RTPI_SparkMax(robotIO->drivetrainLFMotorType, robotIO->canDrivetrainLF, robotIO->accDrivetrain, false, false, false);
+    this->sparkDrivetrainLB = new RTPI_SparkMax(robotIO->drivetrainLBMotorType, robotIO->canDrivetrainLB, robotIO->accDrivetrain, false, false, false);
+    this->sparkDrivetrainRB = new RTPI_SparkMax(robotIO->drivetrainRBMotorType, robotIO->canDrivetrainRB, robotIO->accDrivetrain, true, false, false);
+    this->sparkDrivetrainRF = new RTPI_SparkMax(robotIO->drivetrainRFMotorType, robotIO->canDrivetrainRF, robotIO->accDrivetrain, true, false, false);
 
   //Intake Motorcontroller:
     this->victorIntakeCylinder = new RTPI_VictorSPX(robotIO->canIntakeCylinder, robotIO->accIntakeCylinder, false);
 
   //Storage Motorcontrollers:
-    this->sparkStorageRevolver = new RTPI_SparkMax(true, robotIO->canStorageRevolver, robotIO->accStorageRevolver, false);
-    this->sparkStorageLoader = new RTPI_SparkMax(true, robotIO->canStorageLoader, robotIO->accStorageLoader, false);
+    this->sparkStorageRevolver = new RTPI_SparkMax(robotIO->storageRevolverMotorType, robotIO->canStorageRevolver, robotIO->accStorageRevolver, false, false, false);
+    this->sparkStorageLoader = new RTPI_SparkMax(robotIO->storageLoaderMotorType, robotIO->canStorageLoader, robotIO->accStorageLoader, false, false, false);
 
   //Outtake Motorcontrollers:
-    this->sparkOuttakeUW = new RTPI_SparkMax(false, robotIO->canOuttakeUW, robotIO->accOuttake, false);
-    this->sparkOuttakeDW = new RTPI_SparkMax(false, robotIO->canOuttakeDW, robotIO->accOuttake, false);
+    this->sparkOuttakeUW = new RTPI_SparkMax(robotIO->outtakeUWMotorType, robotIO->canOuttakeUW, robotIO->accOuttake, false, false, false);
+    this->sparkOuttakeDW = new RTPI_SparkMax(robotIO->outtakeDWMotorType, robotIO->canOuttakeDW, robotIO->accOuttake, false, false, false);
 
   //Control Panel Motorcontroller:
-    this->sparkCPWheels = new RTPI_SparkMax(true, robotIO->canCPWheels, robotIO->accCPWheels, false);
+    this->sparkCPWheels = new RTPI_SparkMax(robotIO->CPWheelsMotorType, robotIO->canCPWheels, robotIO->accCPWheels, false, false, false);
 }
 
 void Robot::ModuleSetup() {
