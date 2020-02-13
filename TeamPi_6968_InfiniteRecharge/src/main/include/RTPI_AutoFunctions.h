@@ -25,4 +25,5 @@ class RTPI_AutoFunctions {
   bool stopAutoFunction(); //Safety Button
  public:
   RTPI_AutoFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake);
+  void AutomaticShooting();
 };

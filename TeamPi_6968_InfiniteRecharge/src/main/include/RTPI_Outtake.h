@@ -8,13 +8,18 @@
 #pragma once
 
 #include "RTPI_SparkMax.h"
+#include "RTPI_PIDControl.h"
+#include "RTPI_Drivetrain.h"
 
 class RTPI_Outtake {
     private:
         RTPI_SparkMax *sparkOut1;
         RTPI_SparkMax *sparkOut2;
+        RTPI_PIDControl *shootPID;
+        RTPI_Drivetrain *driveShoot;
 
     public:
     RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_);
     void Shoot(double shootingspeed);
+    void AutoShoot(double shootingspeed);
 };
