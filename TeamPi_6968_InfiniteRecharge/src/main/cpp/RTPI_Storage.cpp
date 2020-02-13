@@ -12,3 +12,4 @@ void RTPI_Storage::SpinRevolver(double speed) {
 void RTPI_Storage::SpinLoader(double speed) {
   sparkLoader->GetSparkMax()->Set(speed);
 }
+

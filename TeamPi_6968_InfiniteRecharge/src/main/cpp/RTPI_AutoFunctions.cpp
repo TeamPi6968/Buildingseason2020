@@ -17,3 +17,8 @@ bool RTPI_AutoFunctions::stopAutoFunction() {
     return false;
   }
 }
+
+void RTPI_AutoFunctions::moveStorageFifth() {
+  robotIO->autoFunction = true;
+  
+}

@@ -65,15 +65,11 @@ void Robot::TeleopPeriodic() {
 
   //MANUALSHOOTING:
     //Activate Outtake shooter if navigator's "x" button is pressed
-      if(input->navigator->GetRawButton(3)){
-        mFunctions->ManualShooting();
-      }
+      mFunctions->ManualShooting();
 
   //MANUALCONTROLPANEL
     //Activate Controlpanel if navigator's "B" button is pressed
-        if(input->navigator->GetRawButton(2)){
-          mFunctions->ManualCP();
-        }
+      mFunctions->ManualCP();
 
 //End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 

@@ -17,4 +17,5 @@ class RTPI_Storage {
   RTPI_Storage(RTPI_SparkMax *storageRevolver, RTPI_SparkMax *storageLoader);
   void SpinRevolver(double speed);
   void SpinLoader(double speed);
+  
 };

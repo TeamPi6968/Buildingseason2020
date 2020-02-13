@@ -63,4 +63,8 @@ class RobotIO {
 
   //Pneumatic Settings: (RTPI_Pneumatics)
     //
+
+  //Autonomous Functions:
+    //Autonomous Enabled/Disabled
+      bool autoFunction = false;
 };
