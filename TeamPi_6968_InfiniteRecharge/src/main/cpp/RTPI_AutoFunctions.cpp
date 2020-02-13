@@ -22,3 +22,11 @@ void RTPI_AutoFunctions::moveStorageFifth() {
   robotIO->autoFunction = true;
   
 }
+//AUTOSHOOTING:
+
+/*void RTPI_AutoFunctions::AutomaticShooting(){
+    float distance = GetSensor();  ELOBOU SENSOR
+    double v0 = 0;
+    v0 = sqrt((0.525+distance * tan(35) - 9.81 * distance * distance) * (cos(35) * cos(35)) / 2.49);
+}
+*/

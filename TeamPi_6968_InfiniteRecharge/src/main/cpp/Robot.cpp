@@ -29,16 +29,15 @@ void Robot::RobotPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-
+  
 }
 
 void Robot::AutonomousPeriodic() {
-
+  
 }
 
 void Robot::TeleopInit() {
   intake->ResetIntake();
-  controlPanel->ColourMatcher();
 }
 
 void Robot::TeleopPeriodic() {
@@ -54,6 +53,7 @@ void Robot::TeleopPeriodic() {
   //MANUALINTAKE:
     //Activate Intake if navigator uses Y-Dir. left joystick
       mFunctions->ManualIntake();
+      this->intakeLRPiston->GetDoubleSolenoid()->Set(DoubleSolenoid::Value::kForward);
   //END MANUALINTAKE
 
   //MANUALSTORAGE:
@@ -79,7 +79,6 @@ void Robot::TeleopPeriodic() {
 }
 
 void Robot::TestPeriodic() {
-
 
 }
 
@@ -112,7 +111,6 @@ void Robot::ModuleSetup() {
   this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
   this->outtake = new RTPI_Outtake(sparkOuttakeUW, sparkOuttakeDW);
-  this->controlPanel = new RTPI_ControlPanel(sparkCPWheels);
 }
 
 void Robot::PneumaticSetup() {
