@@ -53,7 +53,6 @@ void Robot::TeleopPeriodic() {
   //MANUALINTAKE:
     //Activate Intake if navigator uses Y-Dir. left joystick
       mFunctions->ManualIntake();
-      this->intakeLRPiston->GetDoubleSolenoid()->Set(DoubleSolenoid::Value::kForward);
   //END MANUALINTAKE
 
   //MANUALSTORAGE:
