@@ -38,7 +38,8 @@ void Robot::AutonomousPeriodic() {
 
 void Robot::TeleopInit() {
   intake->ResetIntake();
-}
+  controlPanel->ColourMatcher();
+  }
 
 void Robot::TeleopPeriodic() {
 //Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -110,6 +111,7 @@ void Robot::ModuleSetup() {
   this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
   this->outtake = new RTPI_Outtake(sparkOuttakeUW, sparkOuttakeDW);
+  this->controlPanel = new RTPI_ControlPanel(sparkCPWheels);
 }
 
 void Robot::PneumaticSetup() {

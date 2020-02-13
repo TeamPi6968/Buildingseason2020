@@ -31,7 +31,7 @@ class RobotIO {
     //Intake Acceleration:
       int accIntakeCylinder = 1;
     //Storage Acceleration:
-      int accStorageRevolver = 0.5;
+      int accStorageRevolver = 1;
       int accStorageLoader = 0.1;
     //Outtake Acceleration:
       int accOuttake = 1;

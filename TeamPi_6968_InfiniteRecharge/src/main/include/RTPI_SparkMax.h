@@ -14,8 +14,11 @@ using namespace rev;
 class RTPI_SparkMax {
  private:
   CANSparkMax *rtpiSparkMax;
-
+  CANEncoder *rtpiSparkMaxEncoder;
+  CANPIDController *rtpiSparkMaxPIDController;
  public:
-  RTPI_SparkMax(bool brushless, int canID, double acceleration, bool inverted);
+  RTPI_SparkMax(bool brushless, int canID, double acceleration, bool inverted, bool encoder, bool pidController);
   CANSparkMax *GetSparkMax();
+  CANEncoder *GetSparkMaxEncoder();
+  CANPIDController *GetSparkMaxPIDController();
 };
