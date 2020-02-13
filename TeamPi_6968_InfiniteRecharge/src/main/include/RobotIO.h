@@ -19,34 +19,49 @@ class RobotIO {
       int canDrivetrainLF = 1; //Left Front CANID
         bool drivetrainLFMotorType = BRUSHLESS; //MotorType
         bool drivetrainLFInverted = NO; //Inverted?
+        bool drivetrainLFEncoder = NO; //Encoder?
       int canDrivetrainLB = 2; //Left Back CANID
         bool drivetrainLBMotorType = BRUSHLESS; //MotorType
         bool drivetrainLBInverted = NO; //Inverted?
+        bool drivetrainLBEncoder = NO; //Encoder?
       int canDrivetrainRB = 3; //Right Back CANID
         bool drivetrainRBMotorType = BRUSHLESS; //MotorType
         bool drivetrainRBInverted = YES; //Inverted?
+        bool drivetrainRBEncoder = NO; //Encoder?
       int canDrivetrainRF = 4; //Right Front CANID
         bool drivetrainRFMotorType = BRUSHLESS; //MotorType
         bool drivetrainRFInverted = YES; //Inverted?
+        bool drivetrainRFEncoder = NO; //Encoder?
 
     //Intake Motorcontroller:
       int canIntakeCylinder = 5; //Intake Cylinder CANID
+        bool intakeCylinderInverted = NO; //Inverted?
 
     //Storage Motorcontrollers:
       int canStorageRevolver = 6; //Storage Revolver CANID
         bool storageRevolverMotorType = BRUSHLESS; //MotorType
+        bool storageRevolverInverted = NO; //Inverted?
+        bool storageRevolverEncoder = YES; //Encoder?
       int canStorageLoader = 7; //Storage Loader CANID
         bool storageLoaderMotorType = BRUSHLESS; //MotorType
+        bool storageLoaderInverted = NO; //Inverted?
+        bool storageLoaderEncoder = NO; //Encoder?
 
     //Outtake Motorcontrollers:
       int canOuttakeUW = 8; //Motor Upper Wheels CANID
         bool outtakeUWMotorType = BRUSHED; //MotorType
+        bool outtakeUWInverted = NO; //Inverted?
+        bool outtakeUWEncoder = NO; //Encoder?
       int canOuttakeDW = 9; //Motor Down Wheels CANID
         bool outtakeDWMotorType = BRUSHED; //MotorType
+        bool outtakeDWInverted = NO; //Inverted?
+        bool outtakeDWEncoder = NO; //Encoder?
 
     //Control Panel Motorcontroller:
       int canCPWheels = 10; //Control Panel Wheels CANID
         bool CPWheelsMotorType = BRUSHLESS; //MotorType
+        bool CPWheelsInverted = NO; //Inverted?
+        bool CPWheelsEncoder = NO; //Encoder?
 
 
 
@@ -98,6 +113,13 @@ class RobotIO {
       bool intakeBState0 = 0; //Current Intake Button State, Number 0
       bool lastIntakeBState0 = 0; //last Intake Button State, Number 0
       bool intakePState0 = 0; //Current Intake Piston State, Number 0
+
+
+
+  //Storage Settings (RTPI_Storage)
+    //Change State Detection Revolver
+      bool storageRevolverBState0 = 0;
+      bool lastStorageRevolverBState0 = 0;
 
 
 

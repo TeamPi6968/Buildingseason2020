@@ -30,3 +30,10 @@ CANEncoder *RTPI_SparkMax::GetSparkMaxEncoder() {
 CANPIDController *RTPI_SparkMax::GetSparkMaxPIDController() {
   return this->rtpiSparkMaxPIDController;
 }
+
+void RTPI_SparkMax::SetPIDValues(double kP, double kI, double kD, double kMinOutput, double kMaxOutput) {
+  this->rtpiSparkMaxPIDController->SetP(kP);
+  this->rtpiSparkMaxPIDController->SetI(kI);
+  this->rtpiSparkMaxPIDController->SetD(kD);
+  this->rtpiSparkMaxPIDController->SetOutputRange(kMinOutput, kMaxOutput);
+}

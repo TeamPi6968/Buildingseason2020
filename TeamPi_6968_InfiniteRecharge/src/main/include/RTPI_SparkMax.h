@@ -21,4 +21,5 @@ class RTPI_SparkMax {
   CANSparkMax *GetSparkMax();
   CANEncoder *GetSparkMaxEncoder();
   CANPIDController *GetSparkMaxPIDController();
+  void SetPIDValues(double kP, double kI, double kD, double kMinOutput, double kMaxOutput);
 };

@@ -19,8 +19,14 @@ bool RTPI_AutoFunctions::stopAutoFunction() {
 }
 
 void RTPI_AutoFunctions::moveStorageFifth() {
-  robotIO->autoFunction = true;
-  
+  robotIO->storageRevolverBState0 = input->navigatorPOVUp->Get();
+
+  if(robotIO->storageRevolverBState0 != robotIO->lastStorageRevolverBState0) {
+    if(robotIO->storageRevolverBState0) {
+      this->storage->moveFifth();
+    }
+    robotIO->lastStorageRevolverBState0 = robotIO->storageRevolverBState0;
+  }
 }
 //AUTOSHOOTING:
 

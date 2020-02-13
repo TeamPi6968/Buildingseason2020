@@ -22,6 +22,7 @@
 #include "RTPI_Intake.h"
 #include "RTPI_Storage.h"
 #include "RTPI_ManualFunctions.h"
+#include "RTPI_AutoFunctions.h"
 #include "RTPI_PIDControl.h"
 #include "RTPI_Outtake.h"
 #include "RTPI_ControlPanel.h"
@@ -91,8 +92,11 @@ class Robot : public frc::TimedRobot {
   //Control Panel
     RTPI_ControlPanel *controlPanel;
 
-  //ManualDrive
+  //ManualFunctions
     RTPI_ManualFunctions *mFunctions;
+
+  //AutonomousFunctions
+    RTPI_AutoFunctions *aFunctions;
 
   //PIDControl
     RTPI_PIDControl *PID;

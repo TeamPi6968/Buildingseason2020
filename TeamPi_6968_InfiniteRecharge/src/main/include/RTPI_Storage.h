@@ -13,9 +13,10 @@ class RTPI_Storage {
  private:
   RTPI_SparkMax *sparkRevolver;
   RTPI_SparkMax *sparkLoader;
+  double currentRevolverPosition;
  public:
   RTPI_Storage(RTPI_SparkMax *storageRevolver, RTPI_SparkMax *storageLoader);
   void SpinRevolver(double speed);
   void SpinLoader(double speed);
-  
+  void moveFifth();
 };
