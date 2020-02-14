@@ -75,15 +75,10 @@ void RTPI_ManualFunctions::ManualIntake() {
 //Outtake:
 
 void RTPI_ManualFunctions::ManualShooting(){
-  if(input->navigator->GetRawButton(3)){
     double shootForward = input->navigator->GetRawAxis(3);
     double shootBackward = input->navigator->GetRawAxis(2);
     double shoot = 0 + shootForward - shootBackward;
     this->outtake->Shoot(shoot);
-  }
-  else {
-    this->outtake->Shoot(0);
-  }
 }
 
 //Storage:
