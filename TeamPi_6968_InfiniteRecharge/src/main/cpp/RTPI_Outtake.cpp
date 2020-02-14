@@ -10,6 +10,7 @@ RTPI_Outtake::RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_)
 
 void RTPI_Outtake::Shoot(double shootingspeed){
     this->sparkOut1->GetSparkMax()->Set(shootingspeed);
+    this->sparkOut2->GetSparkMax()->Set(shootingSpeed);
 }
 
 void RTPI_Outtake::AutoShoot(double shootingspeed){

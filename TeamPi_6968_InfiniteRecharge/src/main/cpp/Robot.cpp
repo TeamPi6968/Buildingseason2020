@@ -44,7 +44,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 //Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-if(!robotIO->autoFunction) {
+//if(!robotIO->autoFunction) {
   //MANUALDRIVE:
     //Update Drive Mode
       mFunctions->UpdateDriveMode();
@@ -71,7 +71,7 @@ if(!robotIO->autoFunction) {
   //MANUALCONTROLPANEL
     //Activate Controlpanel if navigator's "B" button is pressed
       mFunctions->ManualCP();
-}
+//}
 //End Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 //Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -79,7 +79,7 @@ if(!robotIO->autoFunction) {
   //Non Stopable Auto Functions:
     //AUTO STORAGE
       //Move Storage 1/5 (1 slot)
-        aFunctions->moveStorageFifth();
+        //aFunctions->moveStorageFifth();
 
   //Stopable Auto Functions: (Functions stops when BACK Button is pressed on Driver or Navigator Controller)
     
