@@ -23,6 +23,7 @@ void Robot::RobotInit() {
   ModuleSetup();
   this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake, controlPanel);
   this->aFunctions = new RTPI_AutoFunctions(robotIO, input, drivetrain, intake, storage, outtake);
+  frc::SmartDashboard::PutNumber("Speed", 0);
 }
 
 void Robot::RobotPeriodic() {
@@ -81,8 +82,10 @@ if(!robotIO->autoFunction) {
       //Move Storage 1/5 (1 slot)
         aFunctions->moveStorageFifth();
 
+
+        
   //Stopable Auto Functions: (Functions stops when BACK Button is pressed on Driver or Navigator Controller)
-    
+
 //End Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 }
 

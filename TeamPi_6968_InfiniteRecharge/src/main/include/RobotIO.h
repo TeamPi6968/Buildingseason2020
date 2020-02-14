@@ -126,9 +126,12 @@ class RobotIO {
 
 
   //Storage Settings (RTPI_Storage)
-    //Change State Detection Revolver
+    //Change State Detection Revolver 0
       bool storageRevolverBState0 = 0;
       bool lastStorageRevolverBState0 = 0;
+    //Change State Detection Revolver 1
+      bool storageRevolverBState1 = 0;
+      bool lastStorageRevolverBState1 = 0;
 
 
 
