@@ -1,5 +1,7 @@
 #pragma once
 
+#include "frc/I2C.h"
+
 //In this class, all defines and constants can be found.
 
 class RobotIO {
@@ -73,17 +75,25 @@ class RobotIO {
         bool CPWheelsPIDController = NO; //PID Controller?
 
 
+  //Pneumatics
+    //Pneumatic Control Module:
+      int canPCM = 11;
+    //Power Distribution Panel:
+      int canPDP = 0;
+    //Pigeon Gyroscope:
+      int canPigeon = 12;
 
-  //Pneumatic Control Module:
-    int canPCM = 11;
-  //Power Distribution Panel:
-    int canPDP = 0;
+
+
+  //Sensors
+    //ColorSensor:
+      frc::I2C::Port portColorSensorCP = frc::I2C::Port::kOnboard;
 
 
 
   //Acceleration Settings
     //Drivetrain Acceleration:
-      int accDrivetrain = 1;
+      int accDrivetrain = 0.2;
     //Intake Acceleration:
       int accIntakeCylinder = 1;
     //Storage Acceleration:

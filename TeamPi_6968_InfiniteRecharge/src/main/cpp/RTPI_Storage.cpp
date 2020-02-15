@@ -17,6 +17,6 @@ void RTPI_Storage::SpinLoader(double speed) {
 
 void RTPI_Storage::moveFifth(double direction) {
   //currentRevolverPosition = this->sparkRevolver->GetSparkMaxEncoder()->GetPosition();
-  currentRevolverPosition += (0.6 * direction);
+  currentRevolverPosition += (20 * direction);
   sparkRevolver->GetSparkMaxPIDController()->SetReference(currentRevolverPosition, ControlType::kPosition);
 }
