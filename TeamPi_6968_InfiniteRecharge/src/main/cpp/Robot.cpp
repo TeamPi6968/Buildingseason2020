@@ -35,7 +35,7 @@ void Robot::AutonomousInit() {
 }
 
 void Robot::AutonomousPeriodic() {
-  
+  this->drivetrain->Drive(0.2, 0);
 }
 
 void Robot::TeleopInit() {

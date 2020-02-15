@@ -13,5 +13,5 @@ RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainLF, RTPI_SparkMax *dri
 }
 
 void RTPI_Drivetrain::Drive(double linearSpeed, double rotationSpeed) {
-  this->diffDrive->ArcadeDrive(linearSpeed, rotationSpeed);
+  this->diffDrive->ArcadeDrive(linearSpeed, -rotationSpeed);
 }
