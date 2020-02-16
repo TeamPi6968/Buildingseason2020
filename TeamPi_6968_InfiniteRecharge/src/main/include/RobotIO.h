@@ -1,5 +1,7 @@
 #pragma once
 
+#include "frc/I2C.h"
+
 //In this class, all defines and constants can be found.
 
 class RobotIO {
@@ -18,12 +20,12 @@ class RobotIO {
     //Drivetrain Motorcontrollers:
       int canDrivetrainLF = 1; //Left Front CANID
         bool drivetrainLFMotorType = BRUSHLESS; //MotorType
-        bool drivetrainLFInverted = NO; //Inverted?
+        bool drivetrainLFInverted = YES; //Inverted?
         bool drivetrainLFEncoder = NO; //Encoder?
         bool drivetrainLFPIDController = NO; //PID Controller?
       int canDrivetrainLB = 2; //Left Back CANID
         bool drivetrainLBMotorType = BRUSHLESS; //MotorType
-        bool drivetrainLBInverted = NO; //Inverted?
+        bool drivetrainLBInverted = YES; //Inverted?
         bool drivetrainLBEncoder = NO; //Encoder?
         bool drivetrainLBPIDController = NO; //PID Controller?
       int canDrivetrainRB = 3; //Right Back CANID
@@ -72,19 +74,26 @@ class RobotIO {
         bool CPWheelsEncoder = NO; //Encoder?
         bool CPWheelsPIDController = NO; //PID Controller?
 
-  //IMU
-    int pigeonId = 12;
 
-  //Pneumatic Control Module:
-    int canPCM = 11;
-  //Power Distribution Panel:
-    int canPDP = 0;
+  //Pneumatics
+    //Pneumatic Control Module:
+      int canPCM = 11;
+    //Power Distribution Panel:
+      int canPDP = 0;
+    //Pigeon Gyroscope:
+      int canPigeon = 12;
+
+
+
+  //Sensors
+    //ColorSensor:
+      frc::I2C::Port portColorSensorCP = frc::I2C::Port::kOnboard;
 
 
 
   //Acceleration Settings
     //Drivetrain Acceleration:
-      int accDrivetrain = 1;
+      int accDrivetrain = 0.2;
     //Intake Acceleration:
       int accIntakeCylinder = 1;
     //Storage Acceleration:

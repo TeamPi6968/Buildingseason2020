@@ -7,3 +7,7 @@ double RTPI_MathFunctions::MapDouble(double input, double minInput, double maxIn
 double RTPI_MathFunctions::TransmissionTransfer(double rotationInput, double transmissionInput, double transmissionOutput) {
   return (rotationInput * transmissionOutput) / transmissionInput;
 }
+
+double RTPI_MathFunctions::TransmissionTransferReversed(double output, double transmissionInput, double transmissionOutput) {
+  return (output * transmissionInput) / transmissionOutput;
+}

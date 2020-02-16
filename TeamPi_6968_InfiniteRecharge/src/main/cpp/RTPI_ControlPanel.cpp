@@ -1,81 +1,75 @@
 #include "RTPI_ControlPanel.h"
 
-RTPI_ControlPanel::RTPI_ControlPanel (RTPI_SparkMax *_sparkCP){
+RTPI_ControlPanel::RTPI_ControlPanel(RTPI_SparkMax *_sparkCP, RTPI_ColorSensor *_colorSensor) {
   sparkCP = _sparkCP;
-  }
-
-void RTPI_ControlPanel::ColourMatcher(){
-    m_colorMatcher.AddColorMatch(kBlueTarget);
-    m_colorMatcher.AddColorMatch(kGreenTarget);
-    m_colorMatcher.AddColorMatch(kRedTarget);
-    m_colorMatcher.AddColorMatch(kYellowTarget);
-    m_colorMatcher.AddColorMatch(kFakeYellowTarget1);
-    preColorString = "Unknown";
+  colorSensor = _colorSensor;
 }
 
-void RTPI_ControlPanel::ColourAndCount(double triggerSum){
-  frc::Color detectedColor = m_colorSensor.GetColor();  
+void RTPI_ControlPanel::ColourMatcher(){
+  m_colorMatcher.AddColorMatch(kBlueTarget);
+  m_colorMatcher.AddColorMatch(kGreenTarget);
+  m_colorMatcher.AddColorMatch(kRedTarget);
+  m_colorMatcher.AddColorMatch(kYellowTarget);
+  m_colorMatcher.AddColorMatch(kFakeYellowTarget1);
+  preColorString = "Unknown";
+}
+
+void RTPI_ControlPanel::ColourAndCount(double triggerSum) {
+  frc::Color detectedColor = colorSensor->GetColorSensor()->GetColor();
   frc::Color matchedColor = m_colorMatcher.MatchClosestColor(detectedColor, confidence);
 
-    if (matchedColor == kBlueTarget) {
-      if(preColorString == "Yellow") {
-        colorCount++;
-      }
-      else if(preColorString == "Green") {
-        colorCount--;
-      }
+  if (matchedColor == kBlueTarget) {
+    if(preColorString == "Yellow") {
+      colorCount++;
+    }
+    else if(preColorString == "Green") {
+      colorCount--;
+    }
 
-      colorString = "Blue";
-      preColorString = "Blue";
-
-    } 
+    colorString = "Blue";
+    preColorString = "Blue";
+  } 
     
-    else if (matchedColor == kRedTarget) {
+  else if (matchedColor == kRedTarget) {
     if(preColorString == "Green") {
       colorCount++;
     }
     else if(preColorString == "Yellow") {
       colorCount--;
-     }
-
-      
-   preColorString = "Red";
+    }   
+    preColorString = "Red";
     colorString = "Red";
-    } 
+  } 
     
-    else if (matchedColor == kGreenTarget) {
+  else if (matchedColor == kGreenTarget) {
     if(preColorString == "Blue") {
       colorCount++;
     }
     else if(preColorString == "Red") {
       colorCount--;
-     }
-
-      
-   preColorString = "Green";
+    }
+    preColorString = "Green";
     colorString = "Green";
-    } 
+  } 
     
-    else if (matchedColor == kYellowTarget) {
-     if(preColorString == "Red") {
+  else if (matchedColor == kYellowTarget) {
+    if(preColorString == "Red") {
       colorCount++;
     }
     else if(preColorString == "Blue") {
       colorCount--;
-     }
-
-      
-   preColorString = "Yellow";
+    }
+    preColorString = "Yellow";
     colorString = "Yellow";
-    } 
+  } 
 
-    else if (matchedColor == kFakeYellowTarget1) {
+  else if (matchedColor == kFakeYellowTarget1) {
     colorString = "fake yellow";
-    }
+  }
 
-    else {
-      colorString = "Unknown";
-    }
+  else {
+    colorString = "Unknown";
+  }
 
     frc::SmartDashboard::PutNumber("Red", detectedColor.red);
     frc::SmartDashboard::PutNumber("Green", detectedColor.green);
@@ -89,9 +83,9 @@ void RTPI_ControlPanel::ColourAndCount(double triggerSum){
     this->sparkCP->GetSparkMax()->Set(triggerSum);
 }
 
-void RTPI_ControlPanel::AutoColourAndCount(){
-  while(colorCount<= 12){
-  frc::Color detectedColor = m_colorSensor.GetColor();  
+void RTPI_ControlPanel::AutoColourAndCount() {
+  while (colorCount<= 12) {
+  frc::Color detectedColor = colorSensor->GetColorSensor()->GetColor();  
   frc::Color matchedColor = m_colorMatcher.MatchClosestColor(detectedColor, confidence);
 
     if (matchedColor == kBlueTarget) {

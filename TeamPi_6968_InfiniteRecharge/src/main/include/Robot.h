@@ -17,6 +17,7 @@
 #include "RTPI_SparkMax.h"
 #include "RTPI_VictorSPX.h"
 #include "RTPI_Pneumatics.h"
+#include "RTPI_ColorSensor.h"
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
 #include "RTPI_Intake.h"
@@ -41,6 +42,7 @@ class Robot : public frc::TimedRobot {
 
   void MotorControllerSetup();
   void PneumaticSetup();
+  void SensorSetup();
   void ModuleSetup();
 
  private:
@@ -70,6 +72,10 @@ class Robot : public frc::TimedRobot {
     //Pistons with 'Double Solenoids'
       RTPI_Pneumatics *intakeLRPiston;
       RTPI_Pneumatics *cpPiston;
+
+  //Sensor:
+    //ColorSensor CP
+      RTPI_ColorSensor *colorSensorCP;
 
   //RobotIO:
     RobotIO *robotIO;
