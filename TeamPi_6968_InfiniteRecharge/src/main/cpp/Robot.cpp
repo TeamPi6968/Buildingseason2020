@@ -45,6 +45,9 @@ void Robot::TeleopInit() {
   }
 
 void Robot::TeleopPeriodic() {
+//update the odometry
+drivetrain->periodic();
+
 //Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //if(!robotIO->autoFunction) {
   //MANUALDRIVE:
@@ -125,11 +128,12 @@ void Robot::PneumaticSetup() {
 }
 
 void Robot::SensorSetup() {
+  this->imu = new RTPI_IMU(robotIO->canPigeon);
   this->colorSensorCP = new RTPI_ColorSensor(robotIO->portColorSensorCP);
 }
 
 void Robot::ModuleSetup() {
-  this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
+  this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF,imu);
   this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
   this->outtake = new RTPI_Outtake(sparkOuttakeUW, sparkOuttakeDW);

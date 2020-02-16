@@ -74,6 +74,8 @@ class Robot : public frc::TimedRobot {
       RTPI_Pneumatics *cpPiston;
 
   //Sensor:
+    //imu
+      RTPI_IMU *imu;
     //ColorSensor CP
       RTPI_ColorSensor *colorSensorCP;
 

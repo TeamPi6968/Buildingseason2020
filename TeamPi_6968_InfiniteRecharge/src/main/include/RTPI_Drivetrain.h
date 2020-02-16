@@ -51,7 +51,7 @@ private:
   frc::DifferentialDriveOdometry *m_odometry;
 
 public:
-  RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax *drivetrainSlaveL, RTPI_SparkMax *drivetrainMasterR, RTPI_SparkMax *drivetrainSlaveR);
+  RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax *drivetrainSlaveL, RTPI_SparkMax *drivetrainMasterR, RTPI_SparkMax *drivetrainSlaveR,RTPI_IMU *imu);
   void Drive(double linearSpeed, double rotationSpeed);
 
   //DESCRIPTION:
