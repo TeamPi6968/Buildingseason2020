@@ -61,7 +61,7 @@ class RobotIO {
         bool outtakeUWPIDController = NO; //PID Controller?
       int canOuttakeDW = 9; //Motor Down Wheels CANID
         bool outtakeDWMotorType = BRUSHED; //MotorType
-        bool outtakeDWInverted = NO; //Inverted?
+        bool outtakeDWInverted = YES; //Inverted?
         bool outtakeDWEncoder = NO; //Encoder?
         bool outtakeDWPIDController = NO; //PID Controller?
 
