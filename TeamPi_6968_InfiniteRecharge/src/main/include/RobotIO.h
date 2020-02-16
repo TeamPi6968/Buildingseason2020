@@ -144,6 +144,16 @@ class RobotIO {
       bool lastStorageRevolverBState1 = 0;
 
 
+  
+  //Control Panel Settings (RTPI_ControlPanel)
+    //Manual Control Panel mode enabled
+      bool cpManualMode = false;
+    //Change State Detection
+      bool cpBState0 = 0;
+      bool lastCPBState0 = 0;
+      bool cpPState0 = 0;
+
+
 
   //Pneumatic Settings: (RTPI_Pneumatics)
     //
