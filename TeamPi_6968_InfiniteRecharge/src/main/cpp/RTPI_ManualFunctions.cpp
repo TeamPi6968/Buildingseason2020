@@ -84,7 +84,9 @@ void RTPI_ManualFunctions::ManualShooting(){
 //Storage:
 
 void RTPI_ManualFunctions::ManualRevolver() {
-  this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
+  if(!robotIO->cpManualMode) {
+    this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
+  }
 }
 
 void RTPI_ManualFunctions::ManualLoading() {
@@ -93,10 +95,27 @@ void RTPI_ManualFunctions::ManualLoading() {
 
 // ControlPanel
 
-void RTPI_ManualFunctions::ManualCP(){
-  double clockWise = input->navigator->GetRawAxis(3);
-  double counterClockWise = input->navigator->GetRawAxis(2);
-  double triggerSum = clockWise - counterClockWise;
+void RTPI_ManualFunctions::ManualCP() {
+   robotIO->cpBState0 = input->navigatorPOVRight->Get();
 
-  this->controlPanel->ColourAndCount(triggerSum);
+  if(robotIO->cpBState0 != robotIO->lastCPBState0) {
+    if(robotIO->cpBState0) {
+      if(!robotIO->cpPState0) {
+        this->controlPanel->moveCPPiston(DoubleSolenoid::Value::kForward);
+        robotIO->cpManualMode = true;
+        robotIO->cpPState0 = 1;
+      }
+      else if(robotIO->cpPState0) {
+        this->controlPanel->moveCPPiston(DoubleSolenoid::Value::kReverse);
+        robotIO->cpManualMode = false;
+        robotIO->cpPState0 = 0;
+      }
+    }
+    robotIO->lastCPBState0 = robotIO->cpBState0;
+  }
+
+  if(robotIO->cpManualMode) {
+    this->controlPanel->spinCPWheels(input->navigator->GetRawAxis(0));
+    this->controlPanel->ColorCounter();
+  }
 }
