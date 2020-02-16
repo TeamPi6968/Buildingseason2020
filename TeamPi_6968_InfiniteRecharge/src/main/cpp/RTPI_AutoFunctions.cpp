@@ -23,9 +23,18 @@ void RTPI_AutoFunctions::moveStorageFifth() {
 
   if(robotIO->storageRevolverBState0 != robotIO->lastStorageRevolverBState0) {
     if(robotIO->storageRevolverBState0) {
-      this->storage->moveFifth();
+      this->storage->moveFifth(1);
     }
     robotIO->lastStorageRevolverBState0 = robotIO->storageRevolverBState0;
+  }
+
+  robotIO->storageRevolverBState1 = input->navigatorPOVDown->Get();
+
+  if(robotIO->storageRevolverBState1 != robotIO->lastStorageRevolverBState1) {
+    if(robotIO->storageRevolverBState1) {
+      this->storage->moveFifth(-1);
+    }
+    robotIO->lastStorageRevolverBState1 = robotIO->storageRevolverBState1;
   }
 }
 //AUTOSHOOTING:

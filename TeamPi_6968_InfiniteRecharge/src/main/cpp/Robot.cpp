@@ -19,10 +19,12 @@ void Robot::RobotInit() {
   this->robotIO = new RobotIO();
   MotorControllerSetup();
   PneumaticSetup();
+  SensorSetup();
   this->input = new RTPI_ControllerInput(0,1);
   ModuleSetup();
   this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake, controlPanel);
   this->aFunctions = new RTPI_AutoFunctions(robotIO, input, drivetrain, intake, storage, outtake);
+  frc::SmartDashboard::PutNumber("Speed", 0);
 }
 
 void Robot::RobotPeriodic() {
@@ -34,12 +36,11 @@ void Robot::AutonomousInit() {
 }
 
 void Robot::AutonomousPeriodic() {
-  
+  this->drivetrain->Drive(0.2, 0);
 }
 
 void Robot::TeleopInit() {
   intake->ResetIntake();
-  controlPanel->ColourMatcher();
   }
 
 void Robot::TeleopPeriodic() {
@@ -81,8 +82,10 @@ void Robot::TeleopPeriodic() {
       //Move Storage 1/5 (1 slot)
         //aFunctions->moveStorageFifth();
 
+
+        
   //Stopable Auto Functions: (Functions stops when BACK Button is pressed on Driver or Navigator Controller)
-    
+
 //End Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 }
 
@@ -114,18 +117,22 @@ void Robot::MotorControllerSetup() {
     this->sparkCPWheels = new RTPI_SparkMax(robotIO->CPWheelsMotorType, robotIO->canCPWheels, robotIO->accCPWheels, robotIO->CPWheelsInverted, robotIO->CPWheelsEncoder, false);
 }
 
+void Robot::PneumaticSetup() {
+  this->compressor = new RTPI_Pneumatics(robotIO->canPCM);
+  this->intakeLRPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->intakeLRPortForward, robotIO->intakeLRPortReverse);
+  this->cpPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->cpPortForward, robotIO->cpPortReverse);
+}
+
+void Robot::SensorSetup() {
+  this->colorSensorCP = new RTPI_ColorSensor(robotIO->portColorSensorCP);
+}
+
 void Robot::ModuleSetup() {
   this->drivetrain = new RTPI_Drivetrain(sparkDrivetrainLF, sparkDrivetrainLB, sparkDrivetrainRB, sparkDrivetrainRF);
   this->intake = new RTPI_Intake(victorIntakeCylinder, intakeLRPiston);
   this->storage = new RTPI_Storage(sparkStorageRevolver, sparkStorageLoader);
   this->outtake = new RTPI_Outtake(sparkOuttakeUW, sparkOuttakeDW);
-  this->controlPanel = new RTPI_ControlPanel(sparkCPWheels);
-}
-
-void Robot::PneumaticSetup() {
-  this->compressor = new RTPI_Pneumatics(robotIO->canPCM);
-  this->intakeLRPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->intakeLRPortForward, robotIO->intakeLRPortReverse);
-  this->cpPiston = new RTPI_Pneumatics(robotIO->canPCM, robotIO->cpPortForward, robotIO->cpPortReverse);
+  this->controlPanel = new RTPI_ControlPanel(sparkCPWheels, colorSensorCP, cpPiston);
 }
 
 //====================================END=========================================//

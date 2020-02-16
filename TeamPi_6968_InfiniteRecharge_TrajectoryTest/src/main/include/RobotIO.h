@@ -1,7 +1,5 @@
 #pragma once
 
-#include "frc/I2C.h"
-
 //In this class, all defines and constants can be found.
 
 class RobotIO {
@@ -20,12 +18,12 @@ class RobotIO {
     //Drivetrain Motorcontrollers:
       int canDrivetrainLF = 1; //Left Front CANID
         bool drivetrainLFMotorType = BRUSHLESS; //MotorType
-        bool drivetrainLFInverted = YES; //Inverted?
+        bool drivetrainLFInverted = NO; //Inverted?
         bool drivetrainLFEncoder = NO; //Encoder?
         bool drivetrainLFPIDController = NO; //PID Controller?
       int canDrivetrainLB = 2; //Left Back CANID
         bool drivetrainLBMotorType = BRUSHLESS; //MotorType
-        bool drivetrainLBInverted = YES; //Inverted?
+        bool drivetrainLBInverted = NO; //Inverted?
         bool drivetrainLBEncoder = NO; //Encoder?
         bool drivetrainLBPIDController = NO; //PID Controller?
       int canDrivetrainRB = 3; //Right Back CANID
@@ -63,7 +61,7 @@ class RobotIO {
         bool outtakeUWPIDController = NO; //PID Controller?
       int canOuttakeDW = 9; //Motor Down Wheels CANID
         bool outtakeDWMotorType = BRUSHED; //MotorType
-        bool outtakeDWInverted = YES; //Inverted?
+        bool outtakeDWInverted = NO; //Inverted?
         bool outtakeDWEncoder = NO; //Encoder?
         bool outtakeDWPIDController = NO; //PID Controller?
 
@@ -74,26 +72,19 @@ class RobotIO {
         bool CPWheelsEncoder = NO; //Encoder?
         bool CPWheelsPIDController = NO; //PID Controller?
 
+  //IMU
+    int pigeonId = 12;
 
-  //Pneumatics
-    //Pneumatic Control Module:
-      int canPCM = 11;
-    //Power Distribution Panel:
-      int canPDP = 0;
-    //Pigeon Gyroscope:
-      int canPigeon = 12;
-
-
-
-  //Sensors
-    //ColorSensor:
-      frc::I2C::Port portColorSensorCP = frc::I2C::Port::kOnboard;
+  //Pneumatic Control Module:
+    int canPCM = 11;
+  //Power Distribution Panel:
+    int canPDP = 0;
 
 
 
   //Acceleration Settings
     //Drivetrain Acceleration:
-      int accDrivetrain = 0.2;
+      int accDrivetrain = 1;
     //Intake Acceleration:
       int accIntakeCylinder = 1;
     //Storage Acceleration:
@@ -142,16 +133,6 @@ class RobotIO {
     //Change State Detection Revolver 1
       bool storageRevolverBState1 = 0;
       bool lastStorageRevolverBState1 = 0;
-
-
-  
-  //Control Panel Settings (RTPI_ControlPanel)
-    //Manual Control Panel mode enabled
-      bool cpManualMode = false;
-    //Change State Detection
-      bool cpBState0 = 0;
-      bool lastCPBState0 = 0;
-      bool cpPState0 = 0;
 
 
 
