@@ -12,14 +12,14 @@ Copyright Team PI 6968
 #include "rev/CANSparkMax.h"
 #include "rev/CANEncoder.h"
 
-class RTPI_Encoder{
+class RTPI_SparkAlternateEncoder {
 public:
     //DESCRIPTION: 
     //  Constructor
     //INPUT:
     //  encoderHostSpark [rev::CANSparkMax] - the spark max controller to which the encoder
     //  is connected    
-    RTPI_Encoder(rev::CANSparkMax *encoderHostSpark);
+    RTPI_SparkAlternateEncoder(rev::CANSparkMax *encoderHostSpark);
 
     //DESCRIPTION:
     //  returns a pointer to the CANEncoder object.
