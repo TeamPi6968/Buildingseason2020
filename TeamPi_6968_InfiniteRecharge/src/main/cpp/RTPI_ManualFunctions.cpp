@@ -96,7 +96,8 @@ void RTPI_ManualFunctions::ManualLoading() {
 // ControlPanel
 
 void RTPI_ManualFunctions::ManualCP() {
-   robotIO->cpBState0 = input->navigatorPOVRight->Get();
+  //Change State Detection
+  robotIO->cpBState0 = input->navigatorPOVRight->Get();
 
   if(robotIO->cpBState0 != robotIO->lastCPBState0) {
     if(robotIO->cpBState0) {
