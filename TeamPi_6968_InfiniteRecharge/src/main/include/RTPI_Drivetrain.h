@@ -8,7 +8,7 @@
 #pragma once
 
 #include "RTPI_SparkMax.h"
-#include "RTPI_Encoder.h"
+#include "RTPI_SparkAlternateEncoder.h"
 #include "RTPI_IMU.h"
 #include <frc/drive/DifferentialDrive.h>
 
@@ -35,8 +35,8 @@ private:
   RTPI_SparkMax *sparkRM;
   RTPI_SparkMax *sparkRS;
   //the encoders
-  RTPI_Encoder *encoderL;
-  RTPI_Encoder *encoderR;
+  RTPI_SparkAlternateEncoder *encoderL;
+  RTPI_SparkAlternateEncoder *encoderR;
   //the imu
   RTPI_IMU *imu;
 

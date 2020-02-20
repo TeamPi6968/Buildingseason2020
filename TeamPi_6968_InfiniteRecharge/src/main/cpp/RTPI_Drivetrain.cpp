@@ -13,8 +13,8 @@ RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax
   this->sparkRS->GetSparkMax()->Follow(*sparkRM->GetSparkMax());
 
   //set the encoders assuming they are connected to the master speed controllers
-  this->encoderL = new RTPI_Encoder(sparkLM->GetSparkMax());
-  this->encoderR = new RTPI_Encoder(sparkRM->GetSparkMax());
+  this->encoderL = new RTPI_SparkAlternateEncoder(sparkLM->GetSparkMax());
+  this->encoderR = new RTPI_SparkAlternateEncoder(sparkRM->GetSparkMax());
 
   this->imu = imu;
 
@@ -74,7 +74,7 @@ double RTPI_Drivetrain::GetHeading()
 double RTPI_Drivetrain::GetTurnRate()
 {
   double xyz[3];
-  imu->getPigeon()->GetRawGyro(xyz); 
+  imu->getPigeon()->GetRawGyro(xyz);
   return xyz[2] * (DriveConstants::kGyroReversed ? -1.0 : 1.0);
 }
 
