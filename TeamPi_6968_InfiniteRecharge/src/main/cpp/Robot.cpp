@@ -18,9 +18,10 @@
 void Robot::RobotInit() {
   this->robotIO = new RobotIO();
   MotorControllerSetup();
+  EncoderSetup();
   PneumaticSetup();
   SensorSetup();
-  this->input = new RTPI_ControllerInput(0,1);
+  this->input = new RTPI_ControllerInput(0, 1);
   ModuleSetup();
   this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake, controlPanel);
   this->aFunctions = new RTPI_AutoFunctions(robotIO, input, drivetrain, intake, storage, outtake);
@@ -40,7 +41,7 @@ void Robot::AutonomousPeriodic() {
 
 void Robot::TeleopInit() {
   intake->ResetIntake();
-  }
+}
 
 void Robot::TeleopPeriodic() {
 //update the odometry
@@ -83,6 +84,7 @@ drivetrain->periodic();
     //AUTO STORAGE
       //Move Storage 1/5 (1 slot)
         aFunctions->moveStorageFifth();
+        SmartDashboard::PutNumber("Storage Position", this->sparkStorageRevolver->GetSparkMaxEncoder()->GetPosition());
 
 
         
@@ -116,6 +118,11 @@ void Robot::MotorControllerSetup() {
 
   //Control Panel Motorcontroller:
     this->sparkCPWheels = new RTPI_SparkMax(robotIO->CPWheelsMotorType, robotIO->canCPWheels, robotIO->accCPWheels, robotIO->CPWheelsInverted, robotIO->CPWheelsEncoder, false);
+}
+
+void Robot::EncoderSetup() {
+  this->drivetrainEncoderL = new RTPI_DutyCycleEncoder(robotIO->drivetrainEncChannelL, robotIO->drivetrainWheelPerimeter);
+  this->drivetrainEncoderR = new RTPI_DutyCycleEncoder(robotIO->drivetrainEncChannelR, robotIO->drivetrainWheelPerimeter);
 }
 
 void Robot::PneumaticSetup() {

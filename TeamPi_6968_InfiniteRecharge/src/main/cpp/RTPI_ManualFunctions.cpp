@@ -84,7 +84,7 @@ void RTPI_ManualFunctions::ManualShooting(){
 //Storage:
 
 void RTPI_ManualFunctions::ManualRevolver() {
-  if(!robotIO->cpManualMode) {
+  if(!input->navigator->GetRawButton(1)) {
     this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
   }
 }
@@ -96,6 +96,10 @@ void RTPI_ManualFunctions::ManualLoading() {
 // ControlPanel
 
 void RTPI_ManualFunctions::ManualCP() {
+  if(input->navigator->GetRawButton(1)) {
+    this->controlPanel->spinCPWheels(input->navigator->GetRawAxis(1));
+  }
+  /*
   //Change State Detection
   robotIO->cpBState0 = input->navigatorPOVRight->Get();
 
@@ -119,4 +123,5 @@ void RTPI_ManualFunctions::ManualCP() {
     this->controlPanel->spinCPWheels(input->navigator->GetRawAxis(0));
     this->controlPanel->ColorCounter();
   }
+  */
 }

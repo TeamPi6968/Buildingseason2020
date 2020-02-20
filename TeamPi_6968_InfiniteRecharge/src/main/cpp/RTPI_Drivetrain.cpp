@@ -9,8 +9,8 @@ RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax
   sparkRM = drivetrainMasterR;
   sparkRS = drivetrainSlaveR;
 
-  this->sparkLS->GetSparkMax()->Follow(*sparkLM->GetSparkMax());
-  this->sparkRS->GetSparkMax()->Follow(*sparkRM->GetSparkMax());
+  //this->sparkLS->GetSparkMax()->Follow(*sparkLM->GetSparkMax());
+  //this->sparkRS->GetSparkMax()->Follow(*sparkRM->GetSparkMax());
 
   //set the encoders assuming they are connected to the master speed controllers
   this->encoderL = new RTPI_SparkAlternateEncoder(sparkLM->GetSparkMax());
@@ -28,7 +28,7 @@ RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax
 
 void RTPI_Drivetrain::Drive(double linearSpeed, double rotationSpeed)
 {
-  this->diffDrive->ArcadeDrive(linearSpeed, rotationSpeed);
+  this->diffDrive->ArcadeDrive(linearSpeed, -rotationSpeed);
 }
 
 void RTPI_Drivetrain::periodic()
