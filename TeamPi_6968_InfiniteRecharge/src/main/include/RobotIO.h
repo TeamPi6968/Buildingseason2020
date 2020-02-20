@@ -18,61 +18,70 @@ class RobotIO {
 
   //Motorcontroller Config:
     //Drivetrain Motorcontrollers:
-      int canDrivetrainLF = 1; //Left Front CANID
+      int canDrivetrainLF = 8; //Left Front CANID
         bool drivetrainLFMotorType = BRUSHLESS; //MotorType
         bool drivetrainLFInverted = YES; //Inverted?
         bool drivetrainLFEncoder = NO; //Encoder?
         bool drivetrainLFPIDController = NO; //PID Controller?
-      int canDrivetrainLB = 2; //Left Back CANID
+      int canDrivetrainLB = 9; //Left Back CANID
         bool drivetrainLBMotorType = BRUSHLESS; //MotorType
         bool drivetrainLBInverted = YES; //Inverted?
         bool drivetrainLBEncoder = NO; //Encoder?
         bool drivetrainLBPIDController = NO; //PID Controller?
-      int canDrivetrainRB = 3; //Right Back CANID
+      int canDrivetrainRB = 1; //Right Back CANID
         bool drivetrainRBMotorType = BRUSHLESS; //MotorType
         bool drivetrainRBInverted = YES; //Inverted?
         bool drivetrainRBEncoder = NO; //Encoder?
         bool drivetrainRBPIDController = NO; //PID Controller?
-      int canDrivetrainRF = 4; //Right Front CANID
+      int canDrivetrainRF = 2; //Right Front CANID
         bool drivetrainRFMotorType = BRUSHLESS; //MotorType
         bool drivetrainRFInverted = YES; //Inverted?
         bool drivetrainRFEncoder = NO; //Encoder?
         bool drivetrainRFPIDController = NO; //PID Controller?
 
     //Intake Motorcontroller:
-      int canIntakeCylinder = 5; //Intake Cylinder CANID
+      int canIntakeCylinder = 10; //Intake Cylinder CANID
         bool intakeCylinderInverted = NO; //Inverted?
 
     //Storage Motorcontrollers:
-      int canStorageRevolver = 6; //Storage Revolver CANID
+      int canStorageRevolver = 3; //Storage Revolver CANID
         bool storageRevolverMotorType = BRUSHLESS; //MotorType
         bool storageRevolverInverted = NO; //Inverted?
         bool storageRevolverEncoder = YES; //Encoder?
         bool storageRevolverPIDController = YES; //PID Controller?
-      int canStorageLoader = 7; //Storage Loader CANID
+      int canStorageLoader = 5; //Storage Loader CANID
         bool storageLoaderMotorType = BRUSHLESS; //MotorType
         bool storageLoaderInverted = NO; //Inverted?
         bool storageLoaderEncoder = NO; //Encoder?
         bool storageLoaderPIDController = NO; //PID Controller?
 
     //Outtake Motorcontrollers:
-      int canOuttakeUW = 8; //Motor Upper Wheels CANID
+      int canOuttakeUW = 7; //Motor Upper Wheels CANID
         bool outtakeUWMotorType = BRUSHED; //MotorType
         bool outtakeUWInverted = NO; //Inverted?
         bool outtakeUWEncoder = NO; //Encoder?
         bool outtakeUWPIDController = NO; //PID Controller?
-      int canOuttakeDW = 9; //Motor Down Wheels CANID
+      int canOuttakeDW = 6; //Motor Down Wheels CANID
         bool outtakeDWMotorType = BRUSHED; //MotorType
         bool outtakeDWInverted = NO; //Inverted?
         bool outtakeDWEncoder = NO; //Encoder?
         bool outtakeDWPIDController = NO; //PID Controller?
 
     //Control Panel Motorcontroller:
-      int canCPWheels = 10; //Control Panel Wheels CANID
+      int canCPWheels = 4; //Control Panel Wheels CANID
         bool CPWheelsMotorType = BRUSHLESS; //MotorType
         bool CPWheelsInverted = NO; //Inverted?
         bool CPWheelsEncoder = NO; //Encoder?
         bool CPWheelsPIDController = NO; //PID Controller?
+
+
+
+  //Encoders:
+    //Drivetrain Encoders:
+      int drivetrainEncChannelL = 0;
+      int drivetrainEncChannelR = 1;
+    //Drivetrain Wheels Perimeter
+      double drivetrainWheelPerimeter = 478.7787204070; // (in mm)
 
 
   //Pneumatics
@@ -95,10 +104,10 @@ class RobotIO {
     //Drivetrain Acceleration:
       int accDrivetrain = 0.2;
     //Intake Acceleration:
-      int accIntakeCylinder = 1;
+      int accIntakeCylinder = 0.2;
     //Storage Acceleration:
       int accStorageRevolver = 1;
-      int accStorageLoader = 0.1;
+      int accStorageLoader = 0.4;
     //Outtake Acceleration:
       int accOuttake = 1;
     //Control Panel:
@@ -121,7 +130,7 @@ class RobotIO {
       #define ROCKET_LEAGUE_DRIVE 0
       #define FIRST_PERSON_SHOOTER_DRIVE 1
     //drive Mode
-      int driveMode = ROCKET_LEAGUE_DRIVE; //Standard Drive Mode
+      int driveMode = FIRST_PERSON_SHOOTER_DRIVE; //Standard Drive Mode
 
 
 

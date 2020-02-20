@@ -26,7 +26,8 @@
 #include "RTPI_AutoFunctions.h"
 #include "RTPI_PIDControl.h"
 #include "RTPI_Outtake.h"
-#include "RTPI_ControlPanel.h"
+//#include "RTPI_ControlPanel.h"
+#include "RTPI_DutyCycleEncoder.h"
 
 using namespace frc;
 
@@ -41,6 +42,7 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
   void MotorControllerSetup();
+  void EncoderSetup();
   void PneumaticSetup();
   void SensorSetup();
   void ModuleSetup();
@@ -51,6 +53,9 @@ class Robot : public frc::TimedRobot {
     RTPI_SparkMax *sparkDrivetrainLB;
     RTPI_SparkMax *sparkDrivetrainRB;
     RTPI_SparkMax *sparkDrivetrainRF;
+  //Drivetrain Encoders:
+    RTPI_DutyCycleEncoder *drivetrainEncoderL;
+    RTPI_DutyCycleEncoder *drivetrainEncoderR;
 
   //Intake Motorcontroller:
     RTPI_VictorSPX *victorIntakeCylinder;

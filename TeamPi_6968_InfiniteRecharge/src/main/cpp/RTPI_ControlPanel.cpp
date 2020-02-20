@@ -6,6 +6,8 @@ RTPI_ControlPanel::RTPI_ControlPanel(RTPI_SparkMax *_sparkCP, RTPI_ColorSensor *
   colorSensor = _colorSensor;
   pistonCP = _pistonCP;
 
+  this->colorMatcher = new ColorMatch();
+
   colorMatcher->AddColorMatch(kBlueTarget);
   colorMatcher->AddColorMatch(kGreenTarget);
   colorMatcher->AddColorMatch(kRedTarget);

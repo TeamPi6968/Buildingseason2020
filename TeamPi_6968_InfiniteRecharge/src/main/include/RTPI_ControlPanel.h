@@ -28,11 +28,11 @@ class RTPI_ControlPanel{
 
   ColorMatch *colorMatcher;
 
-  static constexpr frc::Color kBlueTarget  = frc::Color    (0.116, 0.405, 0.477);
-  static constexpr frc::Color kGreenTarget = frc::Color   (0.160, 0.571, 0.267);
-  static constexpr frc::Color kRedTarget = frc::Color     (0.530, 0.335, 0.134);
-  static constexpr frc::Color kYellowTarget = frc::Color  (0.317, 0.557, 0.136);
-  static constexpr frc::Color kFakeYellowTarget1 = frc::Color(0.313, 0.435, 0.251);
+  static constexpr frc::Color kBlueTarget  = frc::Color       (0.116, 0.405, 0.477);
+  static constexpr frc::Color kGreenTarget = frc::Color       (0.160, 0.571, 0.267);
+  static constexpr frc::Color kRedTarget = frc::Color         (0.530, 0.335, 0.134);
+  static constexpr frc::Color kYellowTarget = frc::Color      (0.317, 0.557, 0.136);
+  static constexpr frc::Color kFakeYellowTarget1 = frc::Color (0.313, 0.435, 0.251);
 
   RTPI_ColorSensor *colorSensor;
   RTPI_SparkMax *sparkCP;
