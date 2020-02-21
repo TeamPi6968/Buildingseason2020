@@ -2,7 +2,7 @@
 #include <frc/geometry/Rotation2d.h>
 #include <frc/kinematics/DifferentialDriveWheelSpeeds.h>
 
-RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax *drivetrainSlaveL, RTPI_SparkMax *drivetrainMasterR, RTPI_SparkMax *drivetrainSlaveR)
+RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax *drivetrainSlaveL, RTPI_SparkMax *drivetrainMasterR, RTPI_SparkMax *drivetrainSlaveR, RTPI_IMU *imu)
 {
   sparkLM = drivetrainMasterL;
   sparkLS = drivetrainSlaveL;
@@ -15,6 +15,8 @@ RTPI_Drivetrain::RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax
   //set the encoders assuming they are connected to the master speed controllers
   this->encoderL = new RTPI_SparkAlternateEncoder(sparkLM->GetSparkMax());
   this->encoderR = new RTPI_SparkAlternateEncoder(sparkRM->GetSparkMax());
+
+  this->imu = imu;
 
   m_odometry = new frc::DifferentialDriveOdometry(this->gyroAngle);
 
