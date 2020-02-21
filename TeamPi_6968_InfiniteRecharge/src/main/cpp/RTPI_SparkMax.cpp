@@ -10,6 +10,7 @@ RTPI_SparkMax::RTPI_SparkMax(bool brushless, int canID, double acceleration, boo
   rtpiSparkMax->RestoreFactoryDefaults();
   rtpiSparkMax->SetOpenLoopRampRate(acceleration);
   rtpiSparkMax->SetInverted(inverted);
+  rtpiSparkMax->SetIdleMode(CANSparkMax::IdleMode::kBrake);
 
   if(encoder) {
     rtpiSparkMaxEncoder = new CANEncoder(rtpiSparkMax->GetEncoder());

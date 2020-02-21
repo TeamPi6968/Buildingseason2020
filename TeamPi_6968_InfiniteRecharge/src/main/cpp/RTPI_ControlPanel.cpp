@@ -97,6 +97,7 @@ void RTPI_ControlPanel::ColorCounter()
     colorString = "Unknown";
   }
 
+  /*
   frc::SmartDashboard::PutNumber("Red", detectedColor.red);
   frc::SmartDashboard::PutNumber("Green", detectedColor.green);
   frc::SmartDashboard::PutNumber("Blue", detectedColor.blue);
@@ -105,6 +106,7 @@ void RTPI_ControlPanel::ColorCounter()
   frc::SmartDashboard::PutString("Detected Color", colorString);
   frc::SmartDashboard::PutString("precolourstring", preColorString);
   frc::SmartDashboard::PutString("colourstring", colorString);
+  */
 }
 
 void RTPI_ControlPanel::AutoColourAndCount()

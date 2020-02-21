@@ -8,6 +8,9 @@ RTPI_ManualFunctions::RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInp
   this->storage = _storage;
   this->outtake = _outtake;
   this->controlPanel = _controlPanel;
+
+  SmartDashboard::PutNumber("uwSpeed", 0);
+  SmartDashboard::PutNumber("dwSpeed", 0);
 }
 
 //Drivetrain
@@ -74,11 +77,18 @@ void RTPI_ManualFunctions::ManualIntake() {
 
 //Outtake:
 
-void RTPI_ManualFunctions::ManualShooting(){
-    double shootForward = input->navigator->GetRawAxis(3);
-    double shootBackward = input->navigator->GetRawAxis(2);
-    double shoot = 0 + shootForward - shootBackward;
-    this->outtake->Shoot(shoot);
+void RTPI_ManualFunctions::ManualShooting() {
+  double shootForward = input->navigator->GetRawAxis(3);
+  double shootBackward = input->navigator->GetRawAxis(2);
+  double shoot = 0 + shootForward - shootBackward;
+  this->outtake->Shoot(shoot);
+}
+
+void RTPI_ManualFunctions::ManualDiffShooting() {
+  this->outtake->DiffSpeedShoot(
+    SmartDashboard::GetNumber("uwSpeed", 0),
+    SmartDashboard::GetNumber("dwSpeed", 0)
+  );
 }
 
 //Storage:
@@ -99,7 +109,6 @@ void RTPI_ManualFunctions::ManualCP() {
   if(input->navigator->GetRawButton(1)) {
     this->controlPanel->spinCPWheels(input->navigator->GetRawAxis(1));
   }
-  /*
   //Change State Detection
   robotIO->cpBState0 = input->navigatorPOVRight->Get();
 
@@ -123,5 +132,4 @@ void RTPI_ManualFunctions::ManualCP() {
     this->controlPanel->spinCPWheels(input->navigator->GetRawAxis(0));
     this->controlPanel->ColorCounter();
   }
-  */
 }

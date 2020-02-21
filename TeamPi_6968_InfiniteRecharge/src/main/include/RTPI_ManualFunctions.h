@@ -30,5 +30,6 @@ class RTPI_ManualFunctions {
   void ManualRevolver();
   void ManualLoading();
   void ManualShooting();
+  void ManualDiffShooting();
   void ManualCP();
 };

@@ -13,13 +13,14 @@
 
 class RTPI_Outtake {
     private:
-        RTPI_SparkMax *sparkOut1;
-        RTPI_SparkMax *sparkOut2;
+        RTPI_SparkMax *sparkOutUW;
+        RTPI_SparkMax *sparkOutDW;
         RTPI_PIDControl *shootPID;
         RTPI_Drivetrain *driveShoot;
 
     public:
-    RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_);
+    RTPI_Outtake(RTPI_SparkMax *sparkOutUW_, RTPI_SparkMax *sparkOutDW_);
     void Shoot(double shootingspeed);
     void AutoShoot(double shootingspeed);
+    void DiffSpeedShoot(double uwSpeed, double dwSpeed);
 };
