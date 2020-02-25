@@ -25,6 +25,7 @@ void Robot::RobotInit() {
   ModuleSetup();
   this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake, controlPanel);
   this->aFunctions = new RTPI_AutoFunctions(robotIO, input, drivetrain, intake, storage, outtake);
+  this->driveAwayTimer = new Timer();
 }
 
 void Robot::RobotPeriodic() {
@@ -32,11 +33,14 @@ void Robot::RobotPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-  
+  driveAwayTimer->Reset();
+  driveAwayTimer->Start();
 }
 
 void Robot::AutonomousPeriodic() {
-
+  if(driveAwayTimer->Get() < 2) {
+    drivetrain->Drive(0.7, 0);
+  }
 }
 
 void Robot::TeleopInit() {
@@ -45,7 +49,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 //update the odometry
-drivetrain->periodic();
+//drivetrain->periodic();
 
 //Manual Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //if(!robotIO->autoFunction) {
@@ -85,7 +89,10 @@ drivetrain->periodic();
       //Move Storage 1/5 (1 slot)
         aFunctions->moveStorageFifth();
         SmartDashboard::PutNumber("Storage Position", this->sparkStorageRevolver->GetSparkMaxEncoder()->GetPosition());
-
+    //AUTO OUTTAKE
+      //Shooting Automatic without auto Aiming
+        aFunctions->shootAutomatic();
+      
 
         
   //Stopable Auto Functions: (Functions stops when BACK Button is pressed on Driver or Navigator Controller)

@@ -152,6 +152,12 @@ class RobotIO {
       bool storageRevolverBState1 = 0;
       bool lastStorageRevolverBState1 = 0;
 
+  
+
+  //Outtake Settings (RTPI_Outtake)
+    //Automatic Shooting Change State
+      bool autoShootingActivated = 0;
+
 
   
   //Control Panel Settings (RTPI_ControlPanel)

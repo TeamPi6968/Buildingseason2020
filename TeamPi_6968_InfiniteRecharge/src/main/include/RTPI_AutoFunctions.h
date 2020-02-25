@@ -7,12 +7,16 @@
 
 #pragma once
 
+#include <frc/Timer.h>
+
 #include "RobotIO.h"
 #include "RTPI_ControllerInput.h"
 #include "RTPI_Drivetrain.h"
 #include "RTPI_Intake.h"
 #include "RTPI_Storage.h"
 #include "RTPI_Outtake.h"
+
+using namespace frc;
 
 class RTPI_AutoFunctions {
  private:
@@ -23,8 +27,12 @@ class RTPI_AutoFunctions {
   RTPI_Storage *storage;
   RTPI_Outtake *outtake;
   bool stopAutoFunction(); //Safety Button
+
+  Timer *autoShootingTimer;
+
  public:
   RTPI_AutoFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake);
   void moveStorageFifth();
+  void shootAutomatic();
   void AutomaticShooting();
 };

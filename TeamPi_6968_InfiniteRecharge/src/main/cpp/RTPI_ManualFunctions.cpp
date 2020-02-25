@@ -94,7 +94,7 @@ void RTPI_ManualFunctions::ManualDiffShooting() {
 //Storage:
 
 void RTPI_ManualFunctions::ManualRevolver() {
-  if(!input->navigator->GetRawButton(1)) {
+  if(!robotIO->cpManualMode) {
     this->storage->SpinRevolver(input->navigator->GetRawAxis(0));
   }
 }
