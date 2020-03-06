@@ -7,8 +7,6 @@ RTPI_AutoFunctions::RTPI_AutoFunctions(RobotIO *_robotIO, RTPI_ControllerInput *
   intake = _intake;
   storage = _storage;
   outtake = _outtake;
-
-  this->autoShootingTimer = new Timer();
 }
 
 bool RTPI_AutoFunctions::stopAutoFunction() {
@@ -19,8 +17,6 @@ bool RTPI_AutoFunctions::stopAutoFunction() {
     return false;
   }
 }
-
-//STORAGE:
 
 void RTPI_AutoFunctions::moveStorageFifth() {
   robotIO->storageRevolverBState0 = input->navigatorPOVUp->Get();
@@ -41,35 +37,7 @@ void RTPI_AutoFunctions::moveStorageFifth() {
     robotIO->lastStorageRevolverBState1 = robotIO->storageRevolverBState1;
   }
 }
-
-//OUTTAKE:
-
-void RTPI_AutoFunctions::shootAutomatic() {
-  if(input->navigator->GetRawButton(2)) {
-    if(robotIO->autoShootingActivated == 0) {
-      robotIO->autoShootingActivated = 1;
-      autoShootingTimer->Start();
-    }
-    if(robotIO->autoShootingActivated == 1) {
-      if(autoShootingTimer->Get() > 0) {
-        outtake->Shoot(0.8);
-      }
-      if(autoShootingTimer->Get() > 1) {
-        storage->SpinLoader(-0.8);
-      }
-      if(autoShootingTimer->Get() > 2) {
-        storage->SpinRevolver(-0.8);
-      }
-    }
-  }
-  else {
-    if(autoShootingTimer->Get() != 0) {
-      autoShootingTimer->Reset();
-      autoShootingTimer->Stop();
-    }
-    robotIO->autoShootingActivated = 0;
-  }
-}
+//AUTOSHOOTING:
 
 /*void RTPI_AutoFunctions::AutomaticShooting(){
     float distance = GetSensor();  ELOBOU SENSOR

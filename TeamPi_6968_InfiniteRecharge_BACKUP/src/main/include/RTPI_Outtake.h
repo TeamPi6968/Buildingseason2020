@@ -17,7 +17,6 @@ class RTPI_Outtake {
         RTPI_SparkMax *sparkOutDW;
         RTPI_PIDControl *shootPID;
         RTPI_Drivetrain *driveShoot;
-        RTPI_SparkMax *sparkLoader;
 
     public:
     RTPI_Outtake(RTPI_SparkMax *sparkOutUW_, RTPI_SparkMax *sparkOutDW_);
