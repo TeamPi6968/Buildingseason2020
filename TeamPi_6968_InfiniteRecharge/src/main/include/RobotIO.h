@@ -28,47 +28,47 @@ class RobotIO {
         bool drivetrainLBInverted = YES; //Inverted?
         bool drivetrainLBEncoder = NO; //Encoder?
         bool drivetrainLBPIDController = NO; //PID Controller?
-      int canDrivetrainRB = 3; //Right Back CANID
+      int canDrivetrainRB = 8; //Right Back CANID
         bool drivetrainRBMotorType = BRUSHLESS; //MotorType
         bool drivetrainRBInverted = YES; //Inverted?
         bool drivetrainRBEncoder = NO; //Encoder?
         bool drivetrainRBPIDController = NO; //PID Controller?
-      int canDrivetrainRF = 4; //Right Front CANID
+      int canDrivetrainRF = 9; //Right Front CANID
         bool drivetrainRFMotorType = BRUSHLESS; //MotorType
         bool drivetrainRFInverted = YES; //Inverted?
         bool drivetrainRFEncoder = NO; //Encoder?
         bool drivetrainRFPIDController = NO; //PID Controller?
 
     //Intake Motorcontroller:
-      int canIntakeCylinder = 5; //Intake Cylinder CANID
+      int canIntakeCylinder = 10; //Intake Cylinder CANID
         bool intakeCylinderInverted = NO; //Inverted?
 
     //Storage Motorcontrollers:
-      int canStorageRevolver = 6; //Storage Revolver CANID
+      int canStorageRevolver = 3; //Storage Revolver CANID
         bool storageRevolverMotorType = BRUSHLESS; //MotorType
         bool storageRevolverInverted = NO; //Inverted?
         bool storageRevolverEncoder = YES; //Encoder?
         bool storageRevolverPIDController = YES; //PID Controller?
-      int canStorageLoader = 7; //Storage Loader CANID
+      int canStorageLoader = 5; //Storage Loader CANID
         bool storageLoaderMotorType = BRUSHLESS; //MotorType
         bool storageLoaderInverted = NO; //Inverted?
         bool storageLoaderEncoder = NO; //Encoder?
         bool storageLoaderPIDController = NO; //PID Controller?
 
     //Outtake Motorcontrollers:
-      int canOuttakeUW = 8; //Motor Upper Wheels CANID
+      int canOuttakeUW = 6; //Motor Upper Wheels CANID
         bool outtakeUWMotorType = BRUSHED; //MotorType
         bool outtakeUWInverted = NO; //Inverted?
         bool outtakeUWEncoder = NO; //Encoder?
         bool outtakeUWPIDController = NO; //PID Controller?
-      int canOuttakeDW = 9; //Motor Down Wheels CANID
+      int canOuttakeDW = 7; //Motor Down Wheels CANID
         bool outtakeDWMotorType = BRUSHED; //MotorType
         bool outtakeDWInverted = YES; //Inverted?
         bool outtakeDWEncoder = NO; //Encoder?
         bool outtakeDWPIDController = NO; //PID Controller?
 
     //Control Panel Motorcontroller:
-      int canCPWheels = 10; //Control Panel Wheels CANID
+      int canCPWheels = 4; //Control Panel Wheels CANID
         bool CPWheelsMotorType = BRUSHLESS; //MotorType
         bool CPWheelsInverted = NO; //Inverted?
         bool CPWheelsEncoder = NO; //Encoder?

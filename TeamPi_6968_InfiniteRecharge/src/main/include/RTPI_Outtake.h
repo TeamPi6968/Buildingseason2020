@@ -17,9 +17,11 @@ class RTPI_Outtake {
         RTPI_SparkMax *sparkOut2;
         RTPI_PIDControl *shootPID;
         RTPI_Drivetrain *driveShoot;
+        RTPI_SparkMax *sparkLoader;
 
     public:
-    RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_);
+    RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_, RTPI_SparkMax *_sparkLoader);
+    void Load();
     void Shoot(double shootingspeed);
     void AutoShoot(double shootingspeed);
 };
