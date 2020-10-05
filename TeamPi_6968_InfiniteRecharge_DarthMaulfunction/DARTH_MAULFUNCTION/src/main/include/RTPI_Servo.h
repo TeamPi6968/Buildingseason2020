@@ -7,10 +7,8 @@ class RTPI_Servo {
         RTPI_Servo(int channel);
         void POSControl(double position);
         void AngleControl(double angle);
-        void TurnC();
-        void TurnCC();
-        double GetPos();
-        double GetAngle();
+        double GetServoPos();
+        double GetServoAngle();
         double Tester();
 
     private:

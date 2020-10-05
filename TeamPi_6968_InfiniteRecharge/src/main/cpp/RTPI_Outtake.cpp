@@ -1,9 +1,9 @@
 #include "RTPI_Outtake.h"
 #include <math.h>
 
-RTPI_Outtake::RTPI_Outtake(RTPI_SparkMax *sparkOut1_, RTPI_SparkMax *sparkOut2_, RTPI_SparkMax *_sparkLoader){
-    sparkOut1 = sparkOut1_;
-    sparkOut2 = sparkOut2_;
+RTPI_Outtake::RTPI_Outtake(RTPI_SparkMax *sparkOutUW_, RTPI_SparkMax *sparkOutDW_, RTPI_SparkMax *_sparkLoader){
+    sparkOutUW = sparkOutUW_;
+    sparkOutDW = sparkOutDW_;
     sparkLoader = _sparkLoader;
 
     //this->sparkOut2->GetSparkMax()->Follow(*sparkOut1->GetSparkMax());

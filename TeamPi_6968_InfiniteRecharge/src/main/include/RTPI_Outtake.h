@@ -20,7 +20,8 @@ class RTPI_Outtake {
         RTPI_SparkMax *sparkLoader;
 
     public:
-    RTPI_Outtake(RTPI_SparkMax *sparkOutUW_, RTPI_SparkMax *sparkOutDW_);
+    RTPI_Outtake(RTPI_SparkMax *sparkOutUW_, RTPI_SparkMax *sparkOutDW_, RTPI_SparkMax *_sparkLoader);
+    void Load();
     void Shoot(double shootingspeed);
     void AutoShoot(double shootingspeed);
     void DiffSpeedShoot(double uwSpeed, double dwSpeed);

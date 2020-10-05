@@ -4,10 +4,9 @@
 
 class RTPI_Climbing {
     private:
-        RTPI_Talon *climbTalon;
+        RTPI_Talon *climbTalon, *liftTalon;
     public:
-        void Climbing();
-        void ClimbDown();
-        void DoNothing();
-        RTPI_Climbing(RTPI_Talon *_climbTalon);
+        void Climbing(double speed);
+        void Lifting(double speed);
+        RTPI_Climbing(RTPI_Talon *_climbTalon, RTPI_Talon *_liftTalon);
 };

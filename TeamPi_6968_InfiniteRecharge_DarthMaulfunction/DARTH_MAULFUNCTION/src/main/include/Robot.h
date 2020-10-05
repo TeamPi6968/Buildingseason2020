@@ -11,6 +11,7 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/timer.h>
+#include <cameraserver/CameraServer.h>
 
 #include "RTPI_Talon.h"
 #include "RTPI_ControllerInput.h"
@@ -18,6 +19,8 @@
 #include "RTPI_Functions.h"
 #include "RTPI_Climbing.h"
 #include "RTPI_Servo.h"
+
+#include "RTPI_Test.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -35,11 +38,15 @@ class Robot : public frc::TimedRobot {
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
 
-  RTPI_ControllerInput *Input;
-  RTPI_Talon *MasterL, *SlaveL, *MasterR, *SlaveR, *climbTalon, *controlTalon;
+  
+  RTPI_ControllerInput *input;
+  RTPI_Talon *masterL, *slaveL, *masterR, *slaveR, *climbTalon, *controlTalon, *liftTalon;
   RTPI_Drivetrain *drivetrain;
   RTPI_Functions *function;
   RTPI_Climbing *climbing;
-  RTPI_Servo *servo;
-  Timer *timer;
+  RTPI_Servo *servoRight;
+  Timer *timerAutoBaseline;
+  Timer *timerMoveServos;
+
+  RTPI_Test *test;
 };

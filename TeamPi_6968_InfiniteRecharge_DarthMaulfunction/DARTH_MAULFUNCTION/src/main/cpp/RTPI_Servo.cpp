@@ -9,22 +9,14 @@ void RTPI_Servo::POSControl(double position){
 }
 
 void RTPI_Servo::AngleControl(double angle){
-    _servo->Set(angle);
+    _servo->SetAngle(angle);
 }
 
-void RTPI_Servo::TurnC(){
-    _servo->Set(1);
-}
-
-void RTPI_Servo::TurnCC(){
-    _servo->Set(0);
-}
-
-double RTPI_Servo::GetPos(){
+double RTPI_Servo::GetServoPos(){
     return _servo->Get();
 }
 
-double RTPI_Servo::GetAngle(){
+double RTPI_Servo::GetServoAngle(){
     return _servo->GetAngle();
 }
 
