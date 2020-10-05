@@ -100,7 +100,12 @@ void RTPI_ManualFunctions::ManualRevolver() {
 }
 
 void RTPI_ManualFunctions::ManualLoading() {
-  this->storage->SpinLoader(input->navigator->GetRawAxis(5));
+  if(input->navigator->GetRawAxis(5) > 0.1 || input->navigator->GetRawAxis(5) < -0.1) {
+    this->storage->SpinLoader(input->navigator->GetRawAxis(5));
+  }
+  else {
+    this->storage->SpinLoader(0);
+  }
 }
 
 // ControlPanel
