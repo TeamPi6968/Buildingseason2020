@@ -12,6 +12,7 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/Timer.h>
+#include <PIDController.h>
 
 //Selfmade libraries
 #include "RobotIO.h"
@@ -29,6 +30,7 @@
 #include "RTPI_Outtake.h"
 #include "RTPI_ControlPanel.h"
 #include "RTPI_DutyCycleEncoder.h"
+
 
 using namespace frc;
 
@@ -117,4 +119,7 @@ class Robot : public frc::TimedRobot {
 
   //Autonomous Drive Away Timer
     Timer *driveAwayTimer;
+
+  //PI control course PID controller
+    PIDController *PID_course_cam; 
 };

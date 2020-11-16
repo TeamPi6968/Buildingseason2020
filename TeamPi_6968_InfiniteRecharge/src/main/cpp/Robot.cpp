@@ -26,6 +26,11 @@ void Robot::RobotInit() {
   this->mFunctions = new RTPI_ManualFunctions(robotIO, input, drivetrain, intake, storage, outtake, controlPanel);
   this->aFunctions = new RTPI_AutoFunctions(robotIO, input, drivetrain, intake, storage, outtake);
   this->driveAwayTimer = new Timer();
+  
+
+  // PID course add
+  IMU_CAN_ID = 1;
+  this->IMU = new RTPI_IMU(IMU_CAN_ID);
 }
 
 void Robot::RobotPeriodic() {
@@ -35,12 +40,43 @@ void Robot::RobotPeriodic() {
 void Robot::AutonomousInit() {
   driveAwayTimer->Reset();
   driveAwayTimer->Start();
+  double kP_cam = 1;
+  double kI_cam = 0.1;
+  double kD_cam = 0; 
+  double Setpoint_cam = 200;
+  double measured_cam;
+  double absolute_tolerance_cam = 5;
+  double derivative_tolerance_cam =10; 
+  double integratorRange_cam = 50;
+  double clamp_cam = 5676; //NEO max speed in RPM
+  this->PID_course_cam = new PIDController(kP_cam, kI_cam, kD_cam);
+  PID_course_cam->SetTolerances(absolute_tolerance_cam, derivative_tolerance_cam);
+  PID_course_cam->SetIntegratorRange(-integratorRange, integratorRange)
 }
 
 void Robot::AutonomousPeriodic() {
-  if(driveAwayTimer->Get() < 2) {
-    drivetrain->Drive(0.7, 0);
+  bool PIControl_course = 1;
+  
+  if PIControl_course == 1){
+    if (this->input->driverPOVUp->Get()){ // when up POV of driver is presed set Start PID
+      double Rot_speed_pid = PID_course_cam->SetEnable();
+      double cam_data = 1; // input of camera
+      Rot_speed_pid = PID_course_cam->Calculate(cam_data,this->Setpoint_cam)
+      this->aFunctions->drivetrain->Drive(0,Rot_speed_pid);
+    }
+    if (this->input->driverPOVDown->get()) {// when down POV of dirver is pressed cancel PID
+      double Rot_speed_pid = PID_course_cam->SetDisable();
+      this->aFunctions->drivetrain->Drive(0,0);
+    }
   }
+  else{
+    if(driveAwayTimer->Get() < 2) {
+      drivetrain->Drive(0.7, 0);
+      // nice place for pi PID. 
+      IMU->getPigeon();
+    }    
+  }
+
 }
 
 void Robot::TeleopInit() {

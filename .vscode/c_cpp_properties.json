@@ -10,7 +10,16 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "C:/Program Files/LLVM/bin/clang.exe",
+            "cppStandard": "c++20",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "D:\\Users\\Jorn\\Documents\\Mechatronica\\2018_2019Schooljaar\\TeamPI\\PI_Q4+\\Feedback_control\\Pi_fighter_code\\FRC_TeamPI_2020",
+                    "D:\\Users\\Jorn\\Documents\\Mechatronica\\2018_2019Schooljaar\\TeamPI\\PI_Q4+\\Feedback_control\\Pi_fighter_code\\FRC_TeamPI_2020\\TeamPi_6968_InfiniteRecharge\\src\\main\\include"
+                ]
+            }
         }
     ],
     "version": 4
