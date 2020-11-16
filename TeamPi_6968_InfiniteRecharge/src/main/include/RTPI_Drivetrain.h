@@ -49,6 +49,7 @@ private:
   // Odometry class for tracking robot pose
   Rotation2d gyroAngle;
   frc::DifferentialDriveOdometry *m_odometry;
+  CANPIDController *LMcontroller;
 
 public:
   RTPI_Drivetrain(RTPI_SparkMax *drivetrainMasterL, RTPI_SparkMax *drivetrainSlaveL, RTPI_SparkMax *drivetrainMasterR, RTPI_SparkMax *drivetrainSlaveR,RTPI_IMU *imu);
@@ -120,4 +121,7 @@ public:
    * Resets the drive encoders to currently read a position of 0.
    */
   void ResetEncoders();
+
+  void InitPID(double Pgain, double Igain, double Dgain);
+  void DrivePID();
 };

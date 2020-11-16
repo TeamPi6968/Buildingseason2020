@@ -95,3 +95,18 @@ void RTPI_Drivetrain::ResetOdometry(frc::Pose2d pose)
   m_odometry->ResetPosition(pose,
                            frc::Rotation2d(units::degree_t(GetHeading())));
 }
+
+void RTPI_Drivetrain::InitPID(double Pgain, double Igain, double Dgain){
+  this->LMcontroller = this->sparkLM->GetSparkMaxPIDController();
+  this->sparkLM->GetSparkMax()->RestoreFactoryDefaults();
+  this->LMcontroller->SetP(Pgain);
+  this->LMcontroller->SetI(Igain);
+  this->LMcontroller->SetD(Dgain);
+  //LMcontroller.SetOutputRange(0,1);
+  //LMcontroller.SetReference(1,rev::ControlType::kVelocity);
+}
+
+void RTPI_Drivetrain::DrivePID(){
+
+
+}

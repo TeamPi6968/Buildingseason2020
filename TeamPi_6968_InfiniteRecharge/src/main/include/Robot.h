@@ -12,7 +12,8 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/Timer.h>
-#include <PIDController.h>
+#include <frc/PIDController.h>
+
 
 //Selfmade libraries
 #include "RobotIO.h"
