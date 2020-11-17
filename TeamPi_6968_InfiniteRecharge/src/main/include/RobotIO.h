@@ -22,22 +22,22 @@ class RobotIO {
         bool drivetrainLFMotorType = BRUSHLESS; //MotorType
         bool drivetrainLFInverted = YES; //Inverted?
         bool drivetrainLFEncoder = NO; //Encoder?
-        bool drivetrainLFPIDController = NO; //PID Controller?
+        bool drivetrainLFPIDController = YES; //PID Controller?
       int canDrivetrainLB = 9; //Left Back CANID
         bool drivetrainLBMotorType = BRUSHLESS; //MotorType
         bool drivetrainLBInverted = YES; //Inverted?
         bool drivetrainLBEncoder = NO; //Encoder?
-        bool drivetrainLBPIDController = NO; //PID Controller?
+        bool drivetrainLBPIDController = YES; //PID Controller?
       int canDrivetrainRB = 1; //Right Back CANID
         bool drivetrainRBMotorType = BRUSHLESS; //MotorType
         bool drivetrainRBInverted = YES; //Inverted?
         bool drivetrainRBEncoder = NO; //Encoder?
-        bool drivetrainRBPIDController = NO; //PID Controller?
+        bool drivetrainRBPIDController = YES; //PID Controller?
       int canDrivetrainRF = 2; //Right Front CANID
         bool drivetrainRFMotorType = BRUSHLESS; //MotorType
         bool drivetrainRFInverted = YES; //Inverted?
         bool drivetrainRFEncoder = NO; //Encoder?
-        bool drivetrainRFPIDController = NO; //PID Controller?
+        bool drivetrainRFPIDController = YES; //PID Controller?
 
     //Intake Motorcontroller:
       int canIntakeCylinder = 10; //Intake Cylinder CANID

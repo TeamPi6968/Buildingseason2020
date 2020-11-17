@@ -15,9 +15,16 @@ RTPI_SparkMax::RTPI_SparkMax(bool brushless, int canID, double acceleration, boo
   if(encoder) {
     rtpiSparkMaxEncoder = new CANEncoder(rtpiSparkMax->GetEncoder());
   }
-  if(pidController) {
-    rtpiSparkMaxPIDController = new CANPIDController(rtpiSparkMax->GetPIDController());
+  
+  /*if(pidController) {
+    rtpiSparkMaxPIDController = new CANPIDController(*rtpiSparkMax);
   }
+  */
+}
+
+void RTPI_SparkMax::SetP(double gain)
+{
+ this->rtpiSparkMax->GetPIDController().SetP(gain);
 }
 
 CANSparkMax *RTPI_SparkMax::GetSparkMax() {

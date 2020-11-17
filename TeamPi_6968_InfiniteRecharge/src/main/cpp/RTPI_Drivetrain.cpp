@@ -97,16 +97,20 @@ void RTPI_Drivetrain::ResetOdometry(frc::Pose2d pose)
 }
 
 void RTPI_Drivetrain::InitPID(double Pgain, double Igain, double Dgain){
-  this->LMcontroller = this->sparkLM->GetSparkMaxPIDController();
-  this->sparkLM->GetSparkMax()->RestoreFactoryDefaults();
-  this->LMcontroller->SetP(Pgain);
-  this->LMcontroller->SetI(Igain);
-  this->LMcontroller->SetD(Dgain);
-  //LMcontroller.SetOutputRange(0,1);
-  //LMcontroller.SetReference(1,rev::ControlType::kVelocity);
+  //this->LMcontroller = this->sparkLM->GetSparkMaxPIDController();
+  //this->LMcontroller = this->sparkLM->GetSparkMax()->GetPIDController();
+  //std::cout<<&(this->LMcontroller)<<"\n";
+  //this->sparkLM->GetSparkMax()->RestoreFactoryDefaults();
+  this->sparkLM->SetP(Pgain);
+  //this->LMcontroller->SetI(Igain);
+ // this->LMcontroller->SetD(Dgain);
+  //this->LMcontroller->SetOutputRange(0,1);
+  
+  std::cout << "it is working" << "\n";
+
+  
 }
 
 void RTPI_Drivetrain::DrivePID(){
-
-
+//this->LMcontroller->SetReference(1,rev::ControlType::kVelocity);
 }

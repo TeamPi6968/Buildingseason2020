@@ -14,13 +14,14 @@ class RTPI_ManualFunctions {
  private:
   RobotIO *robotIO;
   RTPI_ControllerInput *input;
-  RTPI_Drivetrain *drivetrain;
+  
   RTPI_Intake *intake;
   RTPI_Storage *storage;
   RTPI_Outtake *outtake;
   RTPI_ControlPanel *controlPanel;
 
  public:
+  RTPI_Drivetrain *drivetrain;
   RTPI_ManualFunctions(RobotIO *_robotIO, RTPI_ControllerInput *_input, RTPI_Drivetrain *_drivetrain, RTPI_Intake *_intake, RTPI_Storage *_storage, RTPI_Outtake *_outtake, RTPI_ControlPanel *_controlPanel);
   void DriveRL(); //Drive like Rocket League
   void DriveFPS(); //Drive like First Person Shooter
@@ -32,4 +33,5 @@ class RTPI_ManualFunctions {
   void ManualShooting();
   void ManualDiffShooting();
   void ManualCP();
+  RTPI_Drivetrain GetDriveTrain();
 };

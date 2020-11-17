@@ -39,14 +39,14 @@ void Robot::AutonomousInit() {
   double kP_cam = 0.1;
   double kI_cam = 1e-4;
   double kD_cam = 1; 
-  double Setpoint_cam = 200;
-  double measured_cam;
-  double absolute_tolerance_cam = 5;
-  double derivative_tolerance_cam =10; 
-  double integratorRange_cam = 50;
-  double clamp_cam = 5676; //NEO max speed in RPM
+  //double Setpoint_cam = 200;
+  //double measured_cam;
+  //double absolute_tolerance_cam = 5;
+  //double derivative_tolerance_cam =10; 
+  //double integratorRange_cam = 50;
+  //double clamp_cam = 5676; //NEO max speed in RPM
   
-  drivetrain->InitPID(kP_cam,kI_cam,kD_cam);
+  this->mFunctions->drivetrain->InitPID(kP_cam,kI_cam,kD_cam);
 
 }
 
@@ -55,6 +55,7 @@ void Robot::AutonomousPeriodic() {
   
   if (PIControl_course == 1){
     std::cout<<"control loop"<<"\n";
+    this->mFunctions->drivetrain->DrivePID();
   }
   else{
     if(driveAwayTimer->Get() < 2) {
@@ -69,6 +70,8 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
+  //this->mFunctions->drivetrain->InitPID(1.0,2.0,3.0);
+  std::cout << "this is telleop" << '\n';
 //update the odometry
 //drivetrain->periodic();
 
@@ -115,6 +118,7 @@ void Robot::TeleopPeriodic() {
         aFunctions->shootAutomatic();
       
 
+
         
   //Stopable Auto Functions: (Functions stops when BACK Button is pressed on Driver or Navigator Controller)
 //End Autonomous Functions -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -123,6 +127,12 @@ void Robot::TeleopPeriodic() {
 void Robot::TestPeriodic() {
 
 }
+
+void Robot::DisabledInit(){
+
+}
+
+
 
 //====================================SETUPS======================================//
 

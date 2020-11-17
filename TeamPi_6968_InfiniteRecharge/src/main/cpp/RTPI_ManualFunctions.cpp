@@ -137,4 +137,6 @@ void RTPI_ManualFunctions::ManualCP() {
     this->controlPanel->spinCPWheels(input->navigator->GetRawAxis(0));
     this->controlPanel->ColorCounter();
   }
+
+
 }
